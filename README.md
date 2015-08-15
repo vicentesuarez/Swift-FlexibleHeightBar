@@ -1,5 +1,5 @@
 # Swift-FlexibleHeightBar
-Expandable implementation of a navigation bar-like view that expands and contracts similar to the Facebook and SquareCash iOS apps. This is a Swift translation from Brian [Keller's BLKFlexibleHeightBar](https://github.com/bryankeller/BLKFlexibleHeightBar/tree/master/BLKFlexibleHeightBar%20Demo).
+Expandable implementation of a navigation bar-like view that expands and contracts similar to the Facebook and SquareCash iOS apps. This is a Swift translation from [Brian Keller's BLKFlexibleHeightBar](https://github.com/bryankeller/BLKFlexibleHeightBar/tree/master/BLKFlexibleHeightBar%20Demo).
 
 ## Create condensing header bars like those seen in the Facebook, Square Cash, and Safari iOS apps.
 
