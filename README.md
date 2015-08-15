@@ -136,12 +136,12 @@ Start by creating a subclass `FlexibleHeightBarBehaviorDefiner`.
 
 The basic pattern for the definer is as follows:
 
-1. Implement `UIScrollViewDelegate` protocol methods. `-scrollViewDidScroll:` is generally a useful starting point.
-2. Based on the current scroll position in `-scrollViewDidScroll:`, calculate a new progress value for the behavior definer's `flexibleHeightBar` property. It will be useful to ask the `flexibleHeightBar` for its `maximumBarHeight` and `minimumBarHeight` properties.
+1. Implement `UIScrollViewDelegate` protocol methods. `scrollViewDidScroll()` is generally a useful starting point.
+2. Based on the current scroll position in `scrollViewDidScroll()`, calculate a new progress value for the behavior definer's `flexibleHeightBar` property. It will be useful to ask the `flexibleHeightBar` for its `maximumBarHeight` and `minimumBarHeight` properties.
 3. Set `self.flexibleHeightBar.progress` to the calculated value from step 2.
-4. Notify the behavior definer's `flexibleHeightBar` that it needs to re-layout using `[self.flexibleHeightBar setNeedsLayout]`
+4. Notify the behavior definer's `flexibleHeightBar` that it needs to re-layout using `self.flexibleHeightBar.setNeedsLayout()`
 
-It may be useful to make other calculations outside of `-scrollViewDidScroll:`. For example, the included `FacebookStyleBehaviorDefiner` needs to apply scrolling thresholds before the bar should hide or reveal itself. This calculation is done inside of `-scrollViewWillBeginDragging:`.
+It may be useful to make other calculations outside of `scrollViewDidScroll()`. For example, the included `FacebookBarBehaviorDefiner` needs to apply scrolling thresholds before the bar should hide or reveal itself. This calculation is done inside of `scrollViewWillBeginDragging()`.
 
 ## TODO
 * Support for **Auto Layout** based layout attributes would simplify some of the trickier bar designs, removing the need to perform final frame and size calculations yourself when defining layout attributes.
