@@ -135,7 +135,6 @@ class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
                 } else {
                     currentlySnapping = false
                 }
-                
             }
         }
     }

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA443B501B842DA000A025F5 /* FlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA443B4D1B842DA000A025F5 /* FlexibleHeightBar.swift */; };
+		BA443B511B842DA000A025F5 /* FlexibleHeightBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA443B4E1B842DA000A025F5 /* FlexibleHeightBarBehaviorDefiner.swift */; };
+		BA443B521B842DA000A025F5 /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA443B4F1B842DA000A025F5 /* FlexibleHeightBarSubviewLayoutAttributes.swift */; };
+		BA443B541B842DE200A025F5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA443B531B842DE200A025F5 /* Assets.xcassets */; };
 		BA5187211B7EA55B000FD395 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187201B7EA55B000FD395 /* AppDelegate.swift */; };
 		BA5187231B7EA55B000FD395 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187221B7EA55B000FD395 /* ViewController.swift */; };
 		BA51872B1B7EA55B000FD395 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA5187291B7EA55B000FD395 /* LaunchScreen.storyboard */; };
@@ -17,9 +21,6 @@
 		BA51875E1B7EA597000FD395 /* FacebookFlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187501B7EA597000FD395 /* FacebookFlexibleHeightBar.swift */; };
 		BA51875F1B7EA597000FD395 /* FacebookFlexibleHeightBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA5187511B7EA597000FD395 /* FacebookFlexibleHeightBar.xib */; };
 		BA5187601B7EA597000FD395 /* FacebookStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187521B7EA597000FD395 /* FacebookStyleViewController.swift */; };
-		BA5187611B7EA597000FD395 /* FlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187531B7EA597000FD395 /* FlexibleHeightBar.swift */; };
-		BA5187621B7EA597000FD395 /* FlexibleHeightBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187541B7EA597000FD395 /* FlexibleHeightBarBehaviorDefiner.swift */; };
-		BA5187631B7EA597000FD395 /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187551B7EA597000FD395 /* FlexibleHeightBarSubviewLayoutAttributes.swift */; };
 		BA5187641B7EA597000FD395 /* SquareCashBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187561B7EA597000FD395 /* SquareCashBarBehaviorDefiner.swift */; };
 		BA5187651B7EA597000FD395 /* SquareCashFlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA5187571B7EA597000FD395 /* SquareCashFlexibleHeightBar.swift */; };
 		BA5187661B7EA597000FD395 /* SquareCashFlexibleHeightBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA5187581B7EA597000FD395 /* SquareCashFlexibleHeightBar.xib */; };
@@ -27,7 +28,6 @@
 		BA5187681B7EA597000FD395 /* TableViewDataSourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51875A1B7EA597000FD395 /* TableViewDataSourceHandler.swift */; };
 		BA5187691B7EA597000FD395 /* TableViewDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA51875B1B7EA597000FD395 /* TableViewDelegateHandler.swift */; };
 		BA51876B1B7EA622000FD395 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA51876A1B7EA622000FD395 /* Main.storyboard */; };
-		BA51876D1B7EA647000FD395 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA51876C1B7EA647000FD395 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +48,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BA443B4D1B842DA000A025F5 /* FlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBar.swift; sourceTree = "<group>"; };
+		BA443B4E1B842DA000A025F5 /* FlexibleHeightBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarBehaviorDefiner.swift; sourceTree = "<group>"; };
+		BA443B4F1B842DA000A025F5 /* FlexibleHeightBarSubviewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarSubviewLayoutAttributes.swift; sourceTree = "<group>"; };
+		BA443B531B842DE200A025F5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BA51871D1B7EA55B000FD395 /* FlexibleHeightBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlexibleHeightBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BA5187201B7EA55B000FD395 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BA5187221B7EA55B000FD395 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,9 +68,6 @@
 		BA5187501B7EA597000FD395 /* FacebookFlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFlexibleHeightBar.swift; sourceTree = "<group>"; };
 		BA5187511B7EA597000FD395 /* FacebookFlexibleHeightBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookFlexibleHeightBar.xib; sourceTree = "<group>"; };
 		BA5187521B7EA597000FD395 /* FacebookStyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookStyleViewController.swift; sourceTree = "<group>"; };
-		BA5187531B7EA597000FD395 /* FlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBar.swift; sourceTree = "<group>"; };
-		BA5187541B7EA597000FD395 /* FlexibleHeightBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarBehaviorDefiner.swift; sourceTree = "<group>"; };
-		BA5187551B7EA597000FD395 /* FlexibleHeightBarSubviewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarSubviewLayoutAttributes.swift; sourceTree = "<group>"; };
 		BA5187561B7EA597000FD395 /* SquareCashBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCashBarBehaviorDefiner.swift; sourceTree = "<group>"; };
 		BA5187571B7EA597000FD395 /* SquareCashFlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCashFlexibleHeightBar.swift; sourceTree = "<group>"; };
 		BA5187581B7EA597000FD395 /* SquareCashFlexibleHeightBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SquareCashFlexibleHeightBar.xib; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		BA51875A1B7EA597000FD395 /* TableViewDataSourceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceHandler.swift; sourceTree = "<group>"; };
 		BA51875B1B7EA597000FD395 /* TableViewDelegateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateHandler.swift; sourceTree = "<group>"; };
 		BA51876A1B7EA622000FD395 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		BA51876C1B7EA647000FD395 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,8 +129,8 @@
 				BA51876E1B7EA678000FD395 /* Delegates */,
 				BA51876F1B7EA68C000FD395 /* View Controllers */,
 				BA5187751B7EA6F7000FD395 /* Views */,
-				BA51876C1B7EA647000FD395 /* Assets.xcassets */,
 				BA51872C1B7EA55B000FD395 /* Info.plist */,
+				BA443B531B842DE200A025F5 /* Assets.xcassets */,
 			);
 			path = FlexibleHeightBarDemo;
 			sourceTree = "<group>";
@@ -184,9 +184,9 @@
 		BA5187711B7EA6AE000FD395 /* FlexibleHeightBar Base */ = {
 			isa = PBXGroup;
 			children = (
-				BA5187531B7EA597000FD395 /* FlexibleHeightBar.swift */,
-				BA5187541B7EA597000FD395 /* FlexibleHeightBarBehaviorDefiner.swift */,
-				BA5187551B7EA597000FD395 /* FlexibleHeightBarSubviewLayoutAttributes.swift */,
+				BA443B4D1B842DA000A025F5 /* FlexibleHeightBar.swift */,
+				BA443B4E1B842DA000A025F5 /* FlexibleHeightBarBehaviorDefiner.swift */,
+				BA443B4F1B842DA000A025F5 /* FlexibleHeightBarSubviewLayoutAttributes.swift */,
 			);
 			name = "FlexibleHeightBar Base";
 			sourceTree = "<group>";
@@ -338,7 +338,7 @@
 				BA51876B1B7EA622000FD395 /* Main.storyboard in Resources */,
 				BA51875F1B7EA597000FD395 /* FacebookFlexibleHeightBar.xib in Resources */,
 				BA5187661B7EA597000FD395 /* SquareCashFlexibleHeightBar.xib in Resources */,
-				BA51876D1B7EA647000FD395 /* Assets.xcassets in Resources */,
+				BA443B541B842DE200A025F5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,17 +365,17 @@
 			files = (
 				BA5187651B7EA597000FD395 /* SquareCashFlexibleHeightBar.swift in Sources */,
 				BA5187601B7EA597000FD395 /* FacebookStyleViewController.swift in Sources */,
+				BA443B521B842DA000A025F5 /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */,
 				BA5187231B7EA55B000FD395 /* ViewController.swift in Sources */,
 				BA5187681B7EA597000FD395 /* TableViewDataSourceHandler.swift in Sources */,
 				BA51875E1B7EA597000FD395 /* FacebookFlexibleHeightBar.swift in Sources */,
+				BA443B511B842DA000A025F5 /* FlexibleHeightBarBehaviorDefiner.swift in Sources */,
 				BA5187691B7EA597000FD395 /* TableViewDelegateHandler.swift in Sources */,
 				BA5187211B7EA55B000FD395 /* AppDelegate.swift in Sources */,
+				BA443B501B842DA000A025F5 /* FlexibleHeightBar.swift in Sources */,
 				BA51875D1B7EA597000FD395 /* FacebookBarBehaviorDefiner.swift in Sources */,
 				BA5187671B7EA597000FD395 /* SquareCashStyleViewController.swift in Sources */,
-				BA5187611B7EA597000FD395 /* FlexibleHeightBar.swift in Sources */,
-				BA5187631B7EA597000FD395 /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */,
 				BA51875C1B7EA597000FD395 /* CALayer+XibConfiguration.swift in Sources */,
-				BA5187621B7EA597000FD395 /* FlexibleHeightBarBehaviorDefiner.swift in Sources */,
 				BA5187641B7EA597000FD395 /* SquareCashBarBehaviorDefiner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

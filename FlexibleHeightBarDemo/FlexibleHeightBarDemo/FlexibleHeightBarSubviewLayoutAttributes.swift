@@ -146,6 +146,16 @@ class FlexibleHeightBarSubviewLayoutAttributes {
     }
     var _transform = CGAffineTransformIdentity
     
+    var cornerRadius: CGFloat {
+        get {
+            return _cornerRadius
+        }
+        set (newCornerRadius) {
+            _cornerRadius = fmax(newCornerRadius, 0.0)
+        }
+    }
+    var _cornerRadius: CGFloat = 0.0
+    
     // MARK: - Initialization -
     
     init() {

@@ -30,6 +30,15 @@ class FlexibleHeightBar: UIView {
     // MARK: - Properties -
     
     private var subviewLayoutAttributes = [UIView: [CGFloat: FlexibleHeightBarSubviewLayoutAttributes]]()
+    private var layoutConstraintConstants = [NSLayoutConstraint: [CGFloat: CGFloat]]()
+    
+    var heightConstraint: NSLayoutConstraint?
+    var useAutoLayout: Bool {
+        if let _ = heightConstraint {
+            return true
+        }
+        return false
+    }
     
     /// The non-negative maximum height for the bar. The default value is **44.0**.
     var maximumBarHeight: CGFloat {
@@ -112,20 +121,19 @@ class FlexibleHeightBar: UIView {
     
     /**
     Add layout attributes that correspond to a progress value for a `FlexibleHeightBar` subview.
-    
     - Parameter attributes: The layout attributes that the receiver wants to be applied to the specified `FlexibleHeightBar` subview.
     - Parameter subview: The receiver's subview to a apply the layout attributes to.
     - Parameter progress: The progress value (between *0.0* and *1.0* inclusive) that the receiver instance will use to decide which layout attributes to apply.
     */
-    func addLayoutAttributes(attributes: FlexibleHeightBarSubviewLayoutAttributes, forSubview subview: UIView, forProgress subviewProgress: CGFloat) {
+    func addLayoutAttributes(attributes: FlexibleHeightBarSubviewLayoutAttributes, forSubview subview: UIView, forProgress barProgress: CGFloat) {
         
         // Init lazily
         if let _ = subviewLayoutAttributes[subview] {} else {
             subviewLayoutAttributes[subview] = [CGFloat: FlexibleHeightBarSubviewLayoutAttributes]()
         }
         
-        // Make sure the progressPosition is between 0 and 1
-        let newProgress = fmax(fmin(subviewProgress, 1.0), 0.0)
+        // Make sure the progress is between 0 and 1
+        let newProgress = fmax(fmin(barProgress, 1.0), 0.0)
         
         subviewLayoutAttributes[subview]![newProgress] = attributes
     }
@@ -135,43 +143,63 @@ class FlexibleHeightBar: UIView {
     - Parameter subview: The subview to remove the layout attriutes from.
     - Parameter subviewProgress: The progress value corresponding to the layout attributes that are to be removed.
     */
-    func removeLayoutAttributeForSubview(subview: UIView, forProgress subviewProgress: CGFloat) {
+    func removeLayoutAttributeForSubview(subview: UIView, forProgress barProgress: CGFloat) {
         
-        subviewLayoutAttributes[subview]?[subviewProgress] = nil
+        subviewLayoutAttributes[subview]?[barProgress] = nil
+    }
+    
+    // MARK: - Layout Constraints -
+    
+    func addLayoutConstraintConstant(constant: CGFloat, forContraint constraint: NSLayoutConstraint, forProgress barProgress: CGFloat) {
+        
+        // Init lazily
+        if let _ = layoutConstraintConstants[constraint] {} else {
+            layoutConstraintConstants[constraint] = [CGFloat: CGFloat]()
+        }
+        
+        // Make sure the progress is between 0 and 1
+        let newProgress = fmax(fmin(barProgress, 1.0), 0.0)
+        
+        layoutConstraintConstants[constraint]![newProgress] = constant
+    }
+    
+    func removeLayoutConstraintConstantforConstraint(constraint: NSLayoutConstraint, forProgress barProgress: CGFloat) {
+        layoutConstraintConstants[constraint]?[barProgress] = nil
     }
     
     // MARK: - Layout Subviews
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         // Update height
-        var barFrame = frame
-        barFrame.size.height = interpolateFromValue(maximumBarHeight, toValue: minimumBarHeight, withProgress: progress)
-        frame = barFrame
-        if let bhvrDefr = behaviorDefiner {
-            if bhvrDefr.elasticMaximumHeightAtTop {
-                progress = fmax(self.progress, 0.0)
-            }
+        if useAutoLayout {
+            applyConstraintConstants()
+            heightConstraint!.constant = interpolateFromValue(maximumBarHeight, toValue: minimumBarHeight, withProgress: progress)
+        } else {
+            var barFrame = frame
+            barFrame.size.height = interpolateFromValue(maximumBarHeight, toValue: minimumBarHeight, withProgress: progress)
+            frame = barFrame
         }
         
-        // Update subviews using the appropriate layout attributes for the current progress
-        applyLayoutAttributesToSubview(self)
+        if let bhvrDefr = behaviorDefiner where !bhvrDefr.elasticMaximumHeightAtTop {
+            progress = fmax(self.progress, 0.0)
+        }
         
+        applyLayoutAttributes()
     }
     
     /**
     Applies the layout Attributes to the specified subview according to the current progress value for the receiver. If the subview has subviews, it checks for layout attributes for subviews as well.
-    
     - Parameter aSubview: The subview to apply the layout attributes.
     */
-    private func applyLayoutAttributesToSubview(aSubview: UIView) {
+    private func applyLayoutAttributes() {
         
-        for subview in aSubview.subviews {
+        for (subview, _) in subviewLayoutAttributes {
             
-            // Get array of keys
             if var progAttrKeys = subviewLayoutAttributes[subview]?.keys.array {
                 
-                progAttrKeys.sortInPlace({$0<$1})
+                progAttrKeys.sortInPlace(){$0<$1}
                 
                 for var index = 0 ; index < progAttrKeys.count ; index++ {
                     let floorProgressPosition = progAttrKeys[index]
@@ -194,9 +222,54 @@ class FlexibleHeightBar: UIView {
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    /**
+    Applies the Constraint Constants to each constraint according to the current progress value for the receiver. If the subview has subviews, it checks for layout attributes for subviews as well.
+    - Parameter aSubview: The subview to apply the layout attributes.
+    */
+    func applyConstraintConstants() {
+        
+        for (constraint, _) in layoutConstraintConstants {
+            
+            // Get array of keys
+            if var progConstKeys = layoutConstraintConstants[constraint]?.keys.array {
                 
-                // If this view had layout attributes update its subviews layout attributes as well
-                applyLayoutAttributesToSubview(subview)
+                progConstKeys.sortInPlace(){$0<$1}
+                
+                for var index = 0 ; index < progConstKeys.count ; index++ {
+                    
+                    let floorProgressPosition = progConstKeys[index]
+                    
+                    if index + 1 < progConstKeys.count {
+                        
+                        let ceilingProgressPosition = progConstKeys[index + 1]
+                        
+                        if progress >= floorProgressPosition && progress < ceilingProgressPosition {
+                            
+                            let floorConstraintConstant = layoutConstraintConstants[constraint]?[floorProgressPosition]
+                            let ceilingConstraintConstant = layoutConstraintConstants[constraint]?[ceilingProgressPosition]
+                            
+                            if let floor = floorConstraintConstant, ceiling = ceilingConstraintConstant {
+                                // Apply constant
+                                let relativeProgress = calculateRelativeProgressWithfloorProgress(floorProgressPosition, ceilingProgress: ceilingProgressPosition)
+                                constraint.constant = interpolateFromValue(floor, toValue: ceiling, withProgress: relativeProgress)
+                            }
+                        }
+                    } else {
+                        if progress >= floorProgressPosition {
+                            let floorConstantConstraint = layoutConstraintConstants[constraint]?[floorProgressPosition]
+                            
+                            if let floor = floorConstantConstraint {
+                                // Apply constant
+                                let relativeProgress = calculateRelativeProgressWithfloorProgress(floorProgressPosition, ceilingProgress: floorProgressPosition)
+                                constraint.constant = interpolateFromValue(floor, toValue: floor, withProgress: relativeProgress)
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -206,11 +279,85 @@ class FlexibleHeightBar: UIView {
     
     - Parameter floorLayoutAttributes: The layout attributes with progress immidiately less than the current layout attributes.
     - Parameter ceilingLayoutAttributes: The layout attributes with progress immidiately greater thatn the current layout attributes.
-    - Parameter subView: The subview to apply the extrapolated layout attributes.
+    - Parameter subview: The subview to apply the extrapolated layout attributes.
     - Parameter floorProgress: The progress immidiately less than the current layout attributes.
     - Parameter ceilingProgress: The progress immidiately greater thatn the current layout attributes
     */
-    func applyFloorLayoutAttributes(floorLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, ceilingLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, toSubview subView: UIView, withFloorProgress floorProgress: CGFloat, ceilingProgress: CGFloat) {
+    func applyFloorLayoutAttributes(floorLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, ceilingLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, toSubview subview: UIView, withFloorProgress floorProgress: CGFloat, ceilingProgress: CGFloat) {
+        
+        let relativeProgress = calculateRelativeProgressWithfloorProgress(floorProgress, ceilingProgress: ceilingProgress)
+        
+        if useAutoLayout {
+            
+            subview.layer.cornerRadius = interpolateFromValue(floorLayoutAttributes.cornerRadius, toValue: ceilingLayoutAttributes.cornerRadius, withProgress: relativeProgress)
+        } else {
+            
+            // Interpolate CA3DTransform
+            var transform3D = CATransform3D()
+            transform3D.m11 = interpolateFromValue(floorLayoutAttributes.transform3D.m11, toValue: ceilingLayoutAttributes.transform3D.m11, withProgress: relativeProgress)
+            transform3D.m12 = interpolateFromValue(floorLayoutAttributes.transform3D.m12, toValue: ceilingLayoutAttributes.transform3D.m12, withProgress: relativeProgress)
+            transform3D.m13 = interpolateFromValue(floorLayoutAttributes.transform3D.m13, toValue: ceilingLayoutAttributes.transform3D.m13, withProgress: relativeProgress)
+            transform3D.m14 = interpolateFromValue(floorLayoutAttributes.transform3D.m14, toValue: ceilingLayoutAttributes.transform3D.m14, withProgress: relativeProgress)
+            transform3D.m21 = interpolateFromValue(floorLayoutAttributes.transform3D.m21, toValue: ceilingLayoutAttributes.transform3D.m21, withProgress: relativeProgress)
+            transform3D.m22 = interpolateFromValue(floorLayoutAttributes.transform3D.m22, toValue: ceilingLayoutAttributes.transform3D.m22, withProgress: relativeProgress)
+            transform3D.m23 = interpolateFromValue(floorLayoutAttributes.transform3D.m23, toValue: ceilingLayoutAttributes.transform3D.m23, withProgress: relativeProgress)
+            transform3D.m24 = interpolateFromValue(floorLayoutAttributes.transform3D.m24, toValue: ceilingLayoutAttributes.transform3D.m24, withProgress: relativeProgress)
+            transform3D.m31 = interpolateFromValue(floorLayoutAttributes.transform3D.m31, toValue: ceilingLayoutAttributes.transform3D.m31, withProgress: relativeProgress)
+            transform3D.m32 = interpolateFromValue(floorLayoutAttributes.transform3D.m32, toValue: ceilingLayoutAttributes.transform3D.m32, withProgress: relativeProgress)
+            transform3D.m33 = interpolateFromValue(floorLayoutAttributes.transform3D.m33, toValue: ceilingLayoutAttributes.transform3D.m33, withProgress: relativeProgress)
+            transform3D.m34 = interpolateFromValue(floorLayoutAttributes.transform3D.m34, toValue: ceilingLayoutAttributes.transform3D.m34, withProgress: relativeProgress)
+            transform3D.m41 = interpolateFromValue(floorLayoutAttributes.transform3D.m41, toValue: ceilingLayoutAttributes.transform3D.m41, withProgress: relativeProgress)
+            transform3D.m42 = interpolateFromValue(floorLayoutAttributes.transform3D.m42, toValue: ceilingLayoutAttributes.transform3D.m42, withProgress: relativeProgress)
+            transform3D.m43 = interpolateFromValue(floorLayoutAttributes.transform3D.m43, toValue: ceilingLayoutAttributes.transform3D.m43, withProgress: relativeProgress)
+            transform3D.m44 = interpolateFromValue(floorLayoutAttributes.transform3D.m44, toValue: ceilingLayoutAttributes.transform3D.m44, withProgress: relativeProgress)
+            
+            // Interpolate frame
+            let frame: CGRect
+            
+            if !CGRectEqualToRect(floorLayoutAttributes.frame, CGRectNull) && CGRectEqualToRect(ceilingLayoutAttributes.frame, CGRectNull) {
+                frame = floorLayoutAttributes.frame
+            } else if CGRectEqualToRect(floorLayoutAttributes.frame, CGRectNull) && CGRectEqualToRect(ceilingLayoutAttributes.frame, CGRectNull) {
+                frame = subview.frame
+            } else {
+                let x = interpolateFromValue(CGRectGetMinX(floorLayoutAttributes.frame), toValue: CGRectGetMinX(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
+                let y = interpolateFromValue(CGRectGetMinY(floorLayoutAttributes.frame), toValue: CGRectGetMinY(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
+                let width = interpolateFromValue(CGRectGetWidth(floorLayoutAttributes.frame), toValue: CGRectGetWidth(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
+                let height = interpolateFromValue(CGRectGetHeight(floorLayoutAttributes.frame), toValue: CGRectGetHeight(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
+                frame = CGRectMake(x, y, width, height)
+            }
+            
+            // Interpolate center
+            var x = interpolateFromValue(floorLayoutAttributes.center.x, toValue: ceilingLayoutAttributes.center.x, withProgress: relativeProgress)
+            var y = interpolateFromValue(floorLayoutAttributes.center.y, toValue: ceilingLayoutAttributes.center.y, withProgress: relativeProgress)
+            let center = CGPointMake(x, y)
+            
+            // Interpolate bounds
+            x = interpolateFromValue(CGRectGetMinX(floorLayoutAttributes.bounds), toValue: CGRectGetMinX(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
+            y = interpolateFromValue(CGRectGetMinY(floorLayoutAttributes.bounds), toValue: CGRectGetMinY(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
+            let width = interpolateFromValue(CGRectGetWidth(floorLayoutAttributes.bounds), toValue: CGRectGetWidth(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
+            let height = interpolateFromValue(CGRectGetHeight(floorLayoutAttributes.bounds), toValue: CGRectGetHeight(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
+            let bounds = CGRectMake(x, y, width, height)
+            
+            // Apply updated attributes
+            subview.layer.transform = transform3D
+            if CATransform3DIsIdentity(transform3D) {
+                subview.frame = frame
+            }
+            
+            subview.center = center
+            subview.bounds = bounds
+            
+        }
+        
+        // Interpolate alpha
+        let alpha = interpolateFromValue(floorLayoutAttributes.alpha, toValue: ceilingLayoutAttributes.alpha, withProgress: relativeProgress)
+        
+        subview.alpha = alpha
+        subview.layer.zPosition = CGFloat(floorLayoutAttributes.zIndex)
+        subview.hidden = floorLayoutAttributes.hidden
+    }
+    
+    func calculateRelativeProgressWithfloorProgress(floorProgress: CGFloat, ceilingProgress: CGFloat) -> CGFloat {
         
         let numerator = progress - floorProgress
         let denominator: CGFloat
@@ -221,68 +368,7 @@ class FlexibleHeightBar: UIView {
             denominator = ceilingProgress - floorProgress
         }
         
-        let relativeProgress = numerator / denominator
-        
-        // Interpolate CA3DTransform
-        var transform3D = CATransform3D()
-        transform3D.m11 = interpolateFromValue(floorLayoutAttributes.transform3D.m11, toValue: ceilingLayoutAttributes.transform3D.m11, withProgress: relativeProgress)
-        transform3D.m12 = interpolateFromValue(floorLayoutAttributes.transform3D.m12, toValue: ceilingLayoutAttributes.transform3D.m12, withProgress: relativeProgress)
-        transform3D.m13 = interpolateFromValue(floorLayoutAttributes.transform3D.m13, toValue: ceilingLayoutAttributes.transform3D.m13, withProgress: relativeProgress)
-        transform3D.m14 = interpolateFromValue(floorLayoutAttributes.transform3D.m14, toValue: ceilingLayoutAttributes.transform3D.m14, withProgress: relativeProgress)
-        transform3D.m21 = interpolateFromValue(floorLayoutAttributes.transform3D.m21, toValue: ceilingLayoutAttributes.transform3D.m21, withProgress: relativeProgress)
-        transform3D.m22 = interpolateFromValue(floorLayoutAttributes.transform3D.m22, toValue: ceilingLayoutAttributes.transform3D.m22, withProgress: relativeProgress)
-        transform3D.m23 = interpolateFromValue(floorLayoutAttributes.transform3D.m23, toValue: ceilingLayoutAttributes.transform3D.m23, withProgress: relativeProgress)
-        transform3D.m24 = interpolateFromValue(floorLayoutAttributes.transform3D.m24, toValue: ceilingLayoutAttributes.transform3D.m24, withProgress: relativeProgress)
-        transform3D.m31 = interpolateFromValue(floorLayoutAttributes.transform3D.m31, toValue: ceilingLayoutAttributes.transform3D.m31, withProgress: relativeProgress)
-        transform3D.m32 = interpolateFromValue(floorLayoutAttributes.transform3D.m32, toValue: ceilingLayoutAttributes.transform3D.m32, withProgress: relativeProgress)
-        transform3D.m33 = interpolateFromValue(floorLayoutAttributes.transform3D.m33, toValue: ceilingLayoutAttributes.transform3D.m33, withProgress: relativeProgress)
-        transform3D.m34 = interpolateFromValue(floorLayoutAttributes.transform3D.m34, toValue: ceilingLayoutAttributes.transform3D.m34, withProgress: relativeProgress)
-        transform3D.m41 = interpolateFromValue(floorLayoutAttributes.transform3D.m41, toValue: ceilingLayoutAttributes.transform3D.m41, withProgress: relativeProgress)
-        transform3D.m42 = interpolateFromValue(floorLayoutAttributes.transform3D.m42, toValue: ceilingLayoutAttributes.transform3D.m42, withProgress: relativeProgress)
-        transform3D.m43 = interpolateFromValue(floorLayoutAttributes.transform3D.m43, toValue: ceilingLayoutAttributes.transform3D.m43, withProgress: relativeProgress)
-        transform3D.m44 = interpolateFromValue(floorLayoutAttributes.transform3D.m44, toValue: ceilingLayoutAttributes.transform3D.m44, withProgress: relativeProgress)
-        
-        // Interpolate frame
-        let frame: CGRect
-        
-        if !CGRectEqualToRect(floorLayoutAttributes.frame, CGRectNull) && CGRectEqualToRect(ceilingLayoutAttributes.frame, CGRectNull) {
-            frame = floorLayoutAttributes.frame
-        } else if CGRectEqualToRect(floorLayoutAttributes.frame, CGRectNull) && CGRectEqualToRect(ceilingLayoutAttributes.frame, CGRectNull) {
-            frame = subView.frame
-        } else {
-            let x = interpolateFromValue(CGRectGetMinX(floorLayoutAttributes.frame), toValue: CGRectGetMinX(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
-            let y = interpolateFromValue(CGRectGetMinY(floorLayoutAttributes.frame), toValue: CGRectGetMinY(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
-            let width = interpolateFromValue(CGRectGetWidth(floorLayoutAttributes.frame), toValue: CGRectGetWidth(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
-            let height = interpolateFromValue(CGRectGetHeight(floorLayoutAttributes.frame), toValue: CGRectGetHeight(ceilingLayoutAttributes.frame), withProgress: relativeProgress)
-            frame = CGRectMake(x, y, width, height)
-        }
-        
-        // Interpolate center
-        var x = interpolateFromValue(floorLayoutAttributes.center.x, toValue: ceilingLayoutAttributes.center.x, withProgress: relativeProgress)
-        var y = interpolateFromValue(floorLayoutAttributes.center.y, toValue: ceilingLayoutAttributes.center.y, withProgress: relativeProgress)
-        let center = CGPointMake(x, y)
-        
-        // Interpolate bounds
-        x = interpolateFromValue(CGRectGetMinX(floorLayoutAttributes.bounds), toValue: CGRectGetMinX(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
-        y = interpolateFromValue(CGRectGetMinY(floorLayoutAttributes.bounds), toValue: CGRectGetMinY(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
-        let width = interpolateFromValue(CGRectGetWidth(floorLayoutAttributes.bounds), toValue: CGRectGetWidth(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
-        let height = interpolateFromValue(CGRectGetHeight(floorLayoutAttributes.bounds), toValue: CGRectGetHeight(ceilingLayoutAttributes.bounds), withProgress: relativeProgress)
-        let bounds = CGRectMake(x, y, width, height)
-        
-        // Interpolate alpha
-        let alpha = interpolateFromValue(floorLayoutAttributes.alpha, toValue: ceilingLayoutAttributes.alpha, withProgress: relativeProgress)
-        
-        // Apply updated attributes
-        subView.layer.transform = transform3D
-        if CATransform3DIsIdentity(transform3D) {
-            subView.frame = frame
-        }
-        
-        subView.center = center
-        subView.bounds = bounds
-        subView.alpha = alpha
-        subView.layer.zPosition = CGFloat(floorLayoutAttributes.zIndex)
-        subView.hidden = floorLayoutAttributes.hidden
+        return numerator / denominator
     }
     
     /**
@@ -291,7 +377,7 @@ class FlexibleHeightBar: UIView {
     - Parameter fromValue: The first value.
     - Parameter toValue: The second value.
     - Parameter progress:  The progress that provides the ratio to apply to the two specified values.
-    - Returns: The extrapolated value.
+    - Returns: The interpolated value.
     */
     private func interpolateFromValue(fromValue: CGFloat, toValue: CGFloat, withProgress progress: CGFloat) -> CGFloat {
         return fromValue - ((fromValue - toValue) * progress)
