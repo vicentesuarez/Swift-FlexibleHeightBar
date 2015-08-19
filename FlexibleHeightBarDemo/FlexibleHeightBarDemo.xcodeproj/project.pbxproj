@@ -125,6 +125,7 @@
 		BA51871F1B7EA55B000FD395 /* FlexibleHeightBarDemo */ = {
 			isa = PBXGroup;
 			children = (
+				BA5187701B7EA69A000FD395 /* Extensions */,
 				BA51876E1B7EA678000FD395 /* Delegates */,
 				BA51876F1B7EA68C000FD395 /* View Controllers */,
 				BA5187751B7EA6F7000FD395 /* Views */,
@@ -183,7 +184,6 @@
 		BA5187711B7EA6AE000FD395 /* FlexibleHeightBar Base */ = {
 			isa = PBXGroup;
 			children = (
-				BA5187701B7EA69A000FD395 /* Extensions */,
 				BA5187531B7EA597000FD395 /* FlexibleHeightBar.swift */,
 				BA5187541B7EA597000FD395 /* FlexibleHeightBarBehaviorDefiner.swift */,
 				BA5187551B7EA597000FD395 /* FlexibleHeightBarSubviewLayoutAttributes.swift */,
@@ -593,6 +593,7 @@
 				BA5187471B7EA55B000FD395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA5187481B7EA55B000FD395 /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -601,6 +602,7 @@
 				BA51874A1B7EA55B000FD395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BA51874B1B7EA55B000FD395 /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -609,6 +611,7 @@
 				BA51874D1B7EA55B000FD395 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

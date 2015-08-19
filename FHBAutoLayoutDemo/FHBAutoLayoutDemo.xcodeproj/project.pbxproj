@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BA2DA2B71B8425EF00EA6AF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2B61B8425EF00EA6AF1 /* AppDelegate.swift */; };
+		BA2DA2C11B8425EF00EA6AF1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2DA2BF1B8425EF00EA6AF1 /* LaunchScreen.storyboard */; };
+		BA2DA2CC1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2CB1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.swift */; };
+		BA2DA2D71B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2D61B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.swift */; };
+		BA2DA2F51B84261600EA6AF1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BA2DA2E41B84261600EA6AF1 /* Assets.xcassets */; };
+		BA2DA2F61B84261600EA6AF1 /* CALayer+XibConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2E51B84261600EA6AF1 /* CALayer+XibConfiguration.swift */; };
+		BA2DA2F71B84261600EA6AF1 /* FacebookBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2E61B84261600EA6AF1 /* FacebookBarBehaviorDefiner.swift */; };
+		BA2DA2F81B84261600EA6AF1 /* FacebookFlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2E71B84261600EA6AF1 /* FacebookFlexibleHeightBar.swift */; };
+		BA2DA2F91B84261600EA6AF1 /* FacebookFlexibleHeightBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA2DA2E81B84261600EA6AF1 /* FacebookFlexibleHeightBar.xib */; };
+		BA2DA2FA1B84261600EA6AF1 /* FacebookStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2E91B84261600EA6AF1 /* FacebookStyleViewController.swift */; };
+		BA2DA2FB1B84261600EA6AF1 /* FlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2EA1B84261600EA6AF1 /* FlexibleHeightBar.swift */; };
+		BA2DA2FC1B84261600EA6AF1 /* FlexibleHeightBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2EB1B84261600EA6AF1 /* FlexibleHeightBarBehaviorDefiner.swift */; };
+		BA2DA2FD1B84261600EA6AF1 /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2EC1B84261600EA6AF1 /* FlexibleHeightBarSubviewLayoutAttributes.swift */; };
+		BA2DA2FE1B84261600EA6AF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BA2DA2ED1B84261600EA6AF1 /* Main.storyboard */; };
+		BA2DA2FF1B84261600EA6AF1 /* SquareCashBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2EE1B84261600EA6AF1 /* SquareCashBarBehaviorDefiner.swift */; };
+		BA2DA3001B84261600EA6AF1 /* SquareCashFlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2EF1B84261600EA6AF1 /* SquareCashFlexibleHeightBar.swift */; };
+		BA2DA3011B84261600EA6AF1 /* SquareCashFlexibleHeightBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = BA2DA2F01B84261600EA6AF1 /* SquareCashFlexibleHeightBar.xib */; };
+		BA2DA3021B84261600EA6AF1 /* SquareCashStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2F11B84261600EA6AF1 /* SquareCashStyleViewController.swift */; };
+		BA2DA3031B84261600EA6AF1 /* TableViewDataSourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2F21B84261600EA6AF1 /* TableViewDataSourceHandler.swift */; };
+		BA2DA3041B84261600EA6AF1 /* TableViewDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2F31B84261600EA6AF1 /* TableViewDelegateHandler.swift */; };
+		BA2DA3051B84261600EA6AF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA2DA2F41B84261600EA6AF1 /* ViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BA2DA2C81B8425EF00EA6AF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA2DA2AB1B8425EF00EA6AF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA2DA2B21B8425EF00EA6AF1;
+			remoteInfo = FHBAutoLayoutDemo;
+		};
+		BA2DA2D31B8425EF00EA6AF1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA2DA2AB1B8425EF00EA6AF1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BA2DA2B21B8425EF00EA6AF1;
+			remoteInfo = FHBAutoLayoutDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BA2DA2B31B8425EF00EA6AF1 /* FHBAutoLayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FHBAutoLayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2DA2B61B8425EF00EA6AF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA2DA2C01B8425EF00EA6AF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BA2DA2C21B8425EF00EA6AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA2DA2C71B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHBAutoLayoutDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2DA2CB1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHBAutoLayoutDemoTests.swift; sourceTree = "<group>"; };
+		BA2DA2CD1B8425EF00EA6AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA2DA2D21B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FHBAutoLayoutDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA2DA2D61B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FHBAutoLayoutDemoUITests.swift; sourceTree = "<group>"; };
+		BA2DA2D81B8425EF00EA6AF1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA2DA2E41B84261600EA6AF1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BA2DA2E51B84261600EA6AF1 /* CALayer+XibConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+XibConfiguration.swift"; sourceTree = "<group>"; };
+		BA2DA2E61B84261600EA6AF1 /* FacebookBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookBarBehaviorDefiner.swift; sourceTree = "<group>"; };
+		BA2DA2E71B84261600EA6AF1 /* FacebookFlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookFlexibleHeightBar.swift; sourceTree = "<group>"; };
+		BA2DA2E81B84261600EA6AF1 /* FacebookFlexibleHeightBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FacebookFlexibleHeightBar.xib; sourceTree = "<group>"; };
+		BA2DA2E91B84261600EA6AF1 /* FacebookStyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookStyleViewController.swift; sourceTree = "<group>"; };
+		BA2DA2EA1B84261600EA6AF1 /* FlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBar.swift; sourceTree = "<group>"; };
+		BA2DA2EB1B84261600EA6AF1 /* FlexibleHeightBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarBehaviorDefiner.swift; sourceTree = "<group>"; };
+		BA2DA2EC1B84261600EA6AF1 /* FlexibleHeightBarSubviewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarSubviewLayoutAttributes.swift; sourceTree = "<group>"; };
+		BA2DA2ED1B84261600EA6AF1 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BA2DA2EE1B84261600EA6AF1 /* SquareCashBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCashBarBehaviorDefiner.swift; sourceTree = "<group>"; };
+		BA2DA2EF1B84261600EA6AF1 /* SquareCashFlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCashFlexibleHeightBar.swift; sourceTree = "<group>"; };
+		BA2DA2F01B84261600EA6AF1 /* SquareCashFlexibleHeightBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SquareCashFlexibleHeightBar.xib; sourceTree = "<group>"; };
+		BA2DA2F11B84261600EA6AF1 /* SquareCashStyleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SquareCashStyleViewController.swift; sourceTree = "<group>"; };
+		BA2DA2F21B84261600EA6AF1 /* TableViewDataSourceHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceHandler.swift; sourceTree = "<group>"; };
+		BA2DA2F31B84261600EA6AF1 /* TableViewDelegateHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDelegateHandler.swift; sourceTree = "<group>"; };
+		BA2DA2F41B84261600EA6AF1 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BA2DA2B01B8425EF00EA6AF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2DA2C41B8425EF00EA6AF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2DA2CF1B8425EF00EA6AF1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BA2DA2AA1B8425EF00EA6AF1 = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2B51B8425EF00EA6AF1 /* FHBAutoLayoutDemo */,
+				BA2DA2CA1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests */,
+				BA2DA2D51B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests */,
+				BA2DA2B41B8425EF00EA6AF1 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BA2DA2B41B8425EF00EA6AF1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2B31B8425EF00EA6AF1 /* FHBAutoLayoutDemo.app */,
+				BA2DA2C71B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.xctest */,
+				BA2DA2D21B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA2DA2B51B8425EF00EA6AF1 /* FHBAutoLayoutDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA3061B8427C100EA6AF1 /* Extensions */,
+				BA2DA30A1B8427F500EA6AF1 /* Delegates */,
+				BA2DA30B1B8427FE00EA6AF1 /* View Controllers */,
+				BA2DA30D1B84285E00EA6AF1 /* Views */,
+				BA2DA2E41B84261600EA6AF1 /* Assets.xcassets */,
+				BA2DA2C21B8425EF00EA6AF1 /* Info.plist */,
+			);
+			path = FHBAutoLayoutDemo;
+			sourceTree = "<group>";
+		};
+		BA2DA2CA1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2CB1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.swift */,
+				BA2DA2CD1B8425EF00EA6AF1 /* Info.plist */,
+			);
+			path = FHBAutoLayoutDemoTests;
+			sourceTree = "<group>";
+		};
+		BA2DA2D51B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2D61B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.swift */,
+				BA2DA2D81B8425EF00EA6AF1 /* Info.plist */,
+			);
+			path = FHBAutoLayoutDemoUITests;
+			sourceTree = "<group>";
+		};
+		BA2DA3061B8427C100EA6AF1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2E51B84261600EA6AF1 /* CALayer+XibConfiguration.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		BA2DA3071B8427CA00EA6AF1 /* Facebook Bar */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2E61B84261600EA6AF1 /* FacebookBarBehaviorDefiner.swift */,
+				BA2DA2E71B84261600EA6AF1 /* FacebookFlexibleHeightBar.swift */,
+				BA2DA2E81B84261600EA6AF1 /* FacebookFlexibleHeightBar.xib */,
+			);
+			name = "Facebook Bar";
+			sourceTree = "<group>";
+		};
+		BA2DA3081B8427D700EA6AF1 /* Flexible Height Bar Base */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2EA1B84261600EA6AF1 /* FlexibleHeightBar.swift */,
+				BA2DA2EB1B84261600EA6AF1 /* FlexibleHeightBarBehaviorDefiner.swift */,
+				BA2DA2EC1B84261600EA6AF1 /* FlexibleHeightBarSubviewLayoutAttributes.swift */,
+			);
+			name = "Flexible Height Bar Base";
+			sourceTree = "<group>";
+		};
+		BA2DA3091B8427E400EA6AF1 /* Square Cash Bar */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2EE1B84261600EA6AF1 /* SquareCashBarBehaviorDefiner.swift */,
+				BA2DA2EF1B84261600EA6AF1 /* SquareCashFlexibleHeightBar.swift */,
+				BA2DA2F01B84261600EA6AF1 /* SquareCashFlexibleHeightBar.xib */,
+			);
+			name = "Square Cash Bar";
+			sourceTree = "<group>";
+		};
+		BA2DA30A1B8427F500EA6AF1 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2F21B84261600EA6AF1 /* TableViewDataSourceHandler.swift */,
+				BA2DA2F31B84261600EA6AF1 /* TableViewDelegateHandler.swift */,
+				BA2DA2B61B8425EF00EA6AF1 /* AppDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		BA2DA30B1B8427FE00EA6AF1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA2F41B84261600EA6AF1 /* ViewController.swift */,
+				BA2DA2E91B84261600EA6AF1 /* FacebookStyleViewController.swift */,
+				BA2DA2F11B84261600EA6AF1 /* SquareCashStyleViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		BA2DA30C1B84281300EA6AF1 /* Flexible Height Bar */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA3081B8427D700EA6AF1 /* Flexible Height Bar Base */,
+				BA2DA3071B8427CA00EA6AF1 /* Facebook Bar */,
+				BA2DA3091B8427E400EA6AF1 /* Square Cash Bar */,
+			);
+			name = "Flexible Height Bar";
+			sourceTree = "<group>";
+		};
+		BA2DA30D1B84285E00EA6AF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA2DA30C1B84281300EA6AF1 /* Flexible Height Bar */,
+				BA2DA2ED1B84261600EA6AF1 /* Main.storyboard */,
+				BA2DA2BF1B8425EF00EA6AF1 /* LaunchScreen.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BA2DA2B21B8425EF00EA6AF1 /* FHBAutoLayoutDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2DA2DB1B8425EF00EA6AF1 /* Build configuration list for PBXNativeTarget "FHBAutoLayoutDemo" */;
+			buildPhases = (
+				BA2DA2AF1B8425EF00EA6AF1 /* Sources */,
+				BA2DA2B01B8425EF00EA6AF1 /* Frameworks */,
+				BA2DA2B11B8425EF00EA6AF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FHBAutoLayoutDemo;
+			productName = FHBAutoLayoutDemo;
+			productReference = BA2DA2B31B8425EF00EA6AF1 /* FHBAutoLayoutDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BA2DA2C61B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2DA2DE1B8425EF00EA6AF1 /* Build configuration list for PBXNativeTarget "FHBAutoLayoutDemoTests" */;
+			buildPhases = (
+				BA2DA2C31B8425EF00EA6AF1 /* Sources */,
+				BA2DA2C41B8425EF00EA6AF1 /* Frameworks */,
+				BA2DA2C51B8425EF00EA6AF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA2DA2C91B8425EF00EA6AF1 /* PBXTargetDependency */,
+			);
+			name = FHBAutoLayoutDemoTests;
+			productName = FHBAutoLayoutDemoTests;
+			productReference = BA2DA2C71B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BA2DA2D11B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BA2DA2E11B8425EF00EA6AF1 /* Build configuration list for PBXNativeTarget "FHBAutoLayoutDemoUITests" */;
+			buildPhases = (
+				BA2DA2CE1B8425EF00EA6AF1 /* Sources */,
+				BA2DA2CF1B8425EF00EA6AF1 /* Frameworks */,
+				BA2DA2D01B8425EF00EA6AF1 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BA2DA2D41B8425EF00EA6AF1 /* PBXTargetDependency */,
+			);
+			name = FHBAutoLayoutDemoUITests;
+			productName = FHBAutoLayoutDemoUITests;
+			productReference = BA2DA2D21B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA2DA2AB1B8425EF00EA6AF1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Vicente Suarez";
+				TargetAttributes = {
+					BA2DA2B21B8425EF00EA6AF1 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					BA2DA2C61B8425EF00EA6AF1 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = BA2DA2B21B8425EF00EA6AF1;
+					};
+					BA2DA2D11B8425EF00EA6AF1 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = BA2DA2B21B8425EF00EA6AF1;
+					};
+				};
+			};
+			buildConfigurationList = BA2DA2AE1B8425EF00EA6AF1 /* Build configuration list for PBXProject "FHBAutoLayoutDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BA2DA2AA1B8425EF00EA6AF1;
+			productRefGroup = BA2DA2B41B8425EF00EA6AF1 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BA2DA2B21B8425EF00EA6AF1 /* FHBAutoLayoutDemo */,
+				BA2DA2C61B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests */,
+				BA2DA2D11B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BA2DA2B11B8425EF00EA6AF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2DA2F91B84261600EA6AF1 /* FacebookFlexibleHeightBar.xib in Resources */,
+				BA2DA2F51B84261600EA6AF1 /* Assets.xcassets in Resources */,
+				BA2DA2C11B8425EF00EA6AF1 /* LaunchScreen.storyboard in Resources */,
+				BA2DA3011B84261600EA6AF1 /* SquareCashFlexibleHeightBar.xib in Resources */,
+				BA2DA2FE1B84261600EA6AF1 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2DA2C51B8425EF00EA6AF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2DA2D01B8425EF00EA6AF1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BA2DA2AF1B8425EF00EA6AF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2DA2FC1B84261600EA6AF1 /* FlexibleHeightBarBehaviorDefiner.swift in Sources */,
+				BA2DA2F61B84261600EA6AF1 /* CALayer+XibConfiguration.swift in Sources */,
+				BA2DA3041B84261600EA6AF1 /* TableViewDelegateHandler.swift in Sources */,
+				BA2DA2FB1B84261600EA6AF1 /* FlexibleHeightBar.swift in Sources */,
+				BA2DA3051B84261600EA6AF1 /* ViewController.swift in Sources */,
+				BA2DA2F81B84261600EA6AF1 /* FacebookFlexibleHeightBar.swift in Sources */,
+				BA2DA2FD1B84261600EA6AF1 /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */,
+				BA2DA2B71B8425EF00EA6AF1 /* AppDelegate.swift in Sources */,
+				BA2DA2FA1B84261600EA6AF1 /* FacebookStyleViewController.swift in Sources */,
+				BA2DA3021B84261600EA6AF1 /* SquareCashStyleViewController.swift in Sources */,
+				BA2DA2F71B84261600EA6AF1 /* FacebookBarBehaviorDefiner.swift in Sources */,
+				BA2DA2FF1B84261600EA6AF1 /* SquareCashBarBehaviorDefiner.swift in Sources */,
+				BA2DA3031B84261600EA6AF1 /* TableViewDataSourceHandler.swift in Sources */,
+				BA2DA3001B84261600EA6AF1 /* SquareCashFlexibleHeightBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2DA2C31B8425EF00EA6AF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2DA2CC1B8425EF00EA6AF1 /* FHBAutoLayoutDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BA2DA2CE1B8425EF00EA6AF1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BA2DA2D71B8425EF00EA6AF1 /* FHBAutoLayoutDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BA2DA2C91B8425EF00EA6AF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA2DA2B21B8425EF00EA6AF1 /* FHBAutoLayoutDemo */;
+			targetProxy = BA2DA2C81B8425EF00EA6AF1 /* PBXContainerItemProxy */;
+		};
+		BA2DA2D41B8425EF00EA6AF1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BA2DA2B21B8425EF00EA6AF1 /* FHBAutoLayoutDemo */;
+			targetProxy = BA2DA2D31B8425EF00EA6AF1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BA2DA2BF1B8425EF00EA6AF1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BA2DA2C01B8425EF00EA6AF1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BA2DA2D91B8425EF00EA6AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BA2DA2DA1B8425EF00EA6AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BA2DA2DC1B8425EF00EA6AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FHBAutoLayoutDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VicenteSuarez.FHBAutoLayoutDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BA2DA2DD1B8425EF00EA6AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = FHBAutoLayoutDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VicenteSuarez.FHBAutoLayoutDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BA2DA2DF1B8425EF00EA6AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FHBAutoLayoutDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VicenteSuarez.FHBAutoLayoutDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FHBAutoLayoutDemo.app/FHBAutoLayoutDemo";
+			};
+			name = Debug;
+		};
+		BA2DA2E01B8425EF00EA6AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = FHBAutoLayoutDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VicenteSuarez.FHBAutoLayoutDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FHBAutoLayoutDemo.app/FHBAutoLayoutDemo";
+			};
+			name = Release;
+		};
+		BA2DA2E21B8425EF00EA6AF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FHBAutoLayoutDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VicenteSuarez.FHBAutoLayoutDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FHBAutoLayoutDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		BA2DA2E31B8425EF00EA6AF1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = FHBAutoLayoutDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = VicenteSuarez.FHBAutoLayoutDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = FHBAutoLayoutDemo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BA2DA2AE1B8425EF00EA6AF1 /* Build configuration list for PBXProject "FHBAutoLayoutDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2DA2D91B8425EF00EA6AF1 /* Debug */,
+				BA2DA2DA1B8425EF00EA6AF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BA2DA2DB1B8425EF00EA6AF1 /* Build configuration list for PBXNativeTarget "FHBAutoLayoutDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2DA2DC1B8425EF00EA6AF1 /* Debug */,
+				BA2DA2DD1B8425EF00EA6AF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BA2DA2DE1B8425EF00EA6AF1 /* Build configuration list for PBXNativeTarget "FHBAutoLayoutDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2DA2DF1B8425EF00EA6AF1 /* Debug */,
+				BA2DA2E01B8425EF00EA6AF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BA2DA2E11B8425EF00EA6AF1 /* Build configuration list for PBXNativeTarget "FHBAutoLayoutDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA2DA2E21B8425EF00EA6AF1 /* Debug */,
+				BA2DA2E31B8425EF00EA6AF1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA2DA2AB1B8425EF00EA6AF1 /* Project object */;
+}
