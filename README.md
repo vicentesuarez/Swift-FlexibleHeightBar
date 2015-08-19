@@ -143,8 +143,5 @@ The basic pattern for the definer is as follows:
 
 It may be useful to make other calculations outside of `scrollViewDidScroll()`. For example, the included `FacebookBarBehaviorDefiner` needs to apply scrolling thresholds before the bar should hide or reveal itself. This calculation is done inside of `scrollViewWillBeginDragging()`.
 
-## TODO
-* Support for **Auto Layout** based layout attributes would simplify some of the trickier bar designs, removing the need to perform final frame and size calculations yourself when defining layout attributes.
-
 ## Contact me
 I am on LinkedIn - [Vicente Suarez](https://www.linkedin.com/in/vicentehsuarez)
