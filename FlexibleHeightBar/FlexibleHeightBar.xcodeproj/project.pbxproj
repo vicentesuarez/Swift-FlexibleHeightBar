@@ -404,6 +404,7 @@
 				BAC7656F1E21B12600B1AF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAC765701E21B12600B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarTests" */ = {
 			isa = XCConfigurationList;
@@ -412,6 +413,7 @@
 				BAC765721E21B12600B1AF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BAC765BB1E21B52D00B1AF2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765BA1E21B52D00B1AF2C /* AppDelegate.swift */; };
+		BAC765BD1E21B52D00B1AF2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765BC1E21B52D00B1AF2C /* ViewController.swift */; };
+		BAC765C01E21B52D00B1AF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC765BE1E21B52D00B1AF2C /* Main.storyboard */; };
+		BAC765C21E21B52D00B1AF2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BAC765C11E21B52D00B1AF2C /* Assets.xcassets */; };
+		BAC765C51E21B52D00B1AF2C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC765C31E21B52D00B1AF2C /* LaunchScreen.storyboard */; };
+		BAC765D01E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765CF1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.swift */; };
+		BAC765DB1E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765DA1E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BAC765CC1E21B52D00B1AF2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAC765AF1E21B52D00B1AF2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAC765B61E21B52D00B1AF2C;
+			remoteInfo = FlexibleHeightBarDemo;
+		};
+		BAC765D71E21B52D00B1AF2C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BAC765AF1E21B52D00B1AF2C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BAC765B61E21B52D00B1AF2C;
+			remoteInfo = FlexibleHeightBarDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BAC765B71E21B52D00B1AF2C /* FlexibleHeightBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlexibleHeightBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAC765BA1E21B52D00B1AF2C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BAC765BC1E21B52D00B1AF2C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BAC765BF1E21B52D00B1AF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BAC765C11E21B52D00B1AF2C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BAC765C41E21B52D00B1AF2C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BAC765C61E21B52D00B1AF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC765CB1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexibleHeightBarDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAC765CF1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarDemoTests.swift; sourceTree = "<group>"; };
+		BAC765D11E21B52D00B1AF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC765D61E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexibleHeightBarDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAC765DA1E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarDemoUITests.swift; sourceTree = "<group>"; };
+		BAC765DC1E21B52D00B1AF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BAC765B41E21B52D00B1AF2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC765C81E21B52D00B1AF2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC765D31E21B52D00B1AF2C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BAC765AE1E21B52D00B1AF2C = {
+			isa = PBXGroup;
+			children = (
+				BAC765B91E21B52D00B1AF2C /* FlexibleHeightBarDemo */,
+				BAC765CE1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests */,
+				BAC765D91E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests */,
+				BAC765B81E21B52D00B1AF2C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BAC765B81E21B52D00B1AF2C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BAC765B71E21B52D00B1AF2C /* FlexibleHeightBarDemo.app */,
+				BAC765CB1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.xctest */,
+				BAC765D61E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BAC765B91E21B52D00B1AF2C /* FlexibleHeightBarDemo */ = {
+			isa = PBXGroup;
+			children = (
+				BAC765BA1E21B52D00B1AF2C /* AppDelegate.swift */,
+				BAC765BC1E21B52D00B1AF2C /* ViewController.swift */,
+				BAC765BE1E21B52D00B1AF2C /* Main.storyboard */,
+				BAC765C11E21B52D00B1AF2C /* Assets.xcassets */,
+				BAC765C31E21B52D00B1AF2C /* LaunchScreen.storyboard */,
+				BAC765C61E21B52D00B1AF2C /* Info.plist */,
+			);
+			path = FlexibleHeightBarDemo;
+			sourceTree = "<group>";
+		};
+		BAC765CE1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAC765CF1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.swift */,
+				BAC765D11E21B52D00B1AF2C /* Info.plist */,
+			);
+			path = FlexibleHeightBarDemoTests;
+			sourceTree = "<group>";
+		};
+		BAC765D91E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BAC765DA1E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.swift */,
+				BAC765DC1E21B52D00B1AF2C /* Info.plist */,
+			);
+			path = FlexibleHeightBarDemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BAC765B61E21B52D00B1AF2C /* FlexibleHeightBarDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAC765DF1E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemo" */;
+			buildPhases = (
+				BAC765B31E21B52D00B1AF2C /* Sources */,
+				BAC765B41E21B52D00B1AF2C /* Frameworks */,
+				BAC765B51E21B52D00B1AF2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlexibleHeightBarDemo;
+			productName = FlexibleHeightBarDemo;
+			productReference = BAC765B71E21B52D00B1AF2C /* FlexibleHeightBarDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BAC765CA1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAC765E21E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoTests" */;
+			buildPhases = (
+				BAC765C71E21B52D00B1AF2C /* Sources */,
+				BAC765C81E21B52D00B1AF2C /* Frameworks */,
+				BAC765C91E21B52D00B1AF2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAC765CD1E21B52D00B1AF2C /* PBXTargetDependency */,
+			);
+			name = FlexibleHeightBarDemoTests;
+			productName = FlexibleHeightBarDemoTests;
+			productReference = BAC765CB1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BAC765D51E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BAC765E51E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoUITests" */;
+			buildPhases = (
+				BAC765D21E21B52D00B1AF2C /* Sources */,
+				BAC765D31E21B52D00B1AF2C /* Frameworks */,
+				BAC765D41E21B52D00B1AF2C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BAC765D81E21B52D00B1AF2C /* PBXTargetDependency */,
+			);
+			name = FlexibleHeightBarDemoUITests;
+			productName = FlexibleHeightBarDemoUITests;
+			productReference = BAC765D61E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BAC765AF1E21B52D00B1AF2C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Vicente Suarez";
+				TargetAttributes = {
+					BAC765B61E21B52D00B1AF2C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = K6439SN8NA;
+						ProvisioningStyle = Automatic;
+					};
+					BAC765CA1E21B52D00B1AF2C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = K6439SN8NA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BAC765B61E21B52D00B1AF2C;
+					};
+					BAC765D51E21B52D00B1AF2C = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = K6439SN8NA;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BAC765B61E21B52D00B1AF2C;
+					};
+				};
+			};
+			buildConfigurationList = BAC765B21E21B52D00B1AF2C /* Build configuration list for PBXProject "FlexibleHeightBarDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BAC765AE1E21B52D00B1AF2C;
+			productRefGroup = BAC765B81E21B52D00B1AF2C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BAC765B61E21B52D00B1AF2C /* FlexibleHeightBarDemo */,
+				BAC765CA1E21B52D00B1AF2C /* FlexibleHeightBarDemoTests */,
+				BAC765D51E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BAC765B51E21B52D00B1AF2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAC765C51E21B52D00B1AF2C /* LaunchScreen.storyboard in Resources */,
+				BAC765C21E21B52D00B1AF2C /* Assets.xcassets in Resources */,
+				BAC765C01E21B52D00B1AF2C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC765C91E21B52D00B1AF2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC765D41E21B52D00B1AF2C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BAC765B31E21B52D00B1AF2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAC765BD1E21B52D00B1AF2C /* ViewController.swift in Sources */,
+				BAC765BB1E21B52D00B1AF2C /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC765C71E21B52D00B1AF2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAC765D01E21B52D00B1AF2C /* FlexibleHeightBarDemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BAC765D21E21B52D00B1AF2C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BAC765DB1E21B52D00B1AF2C /* FlexibleHeightBarDemoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BAC765CD1E21B52D00B1AF2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAC765B61E21B52D00B1AF2C /* FlexibleHeightBarDemo */;
+			targetProxy = BAC765CC1E21B52D00B1AF2C /* PBXContainerItemProxy */;
+		};
+		BAC765D81E21B52D00B1AF2C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BAC765B61E21B52D00B1AF2C /* FlexibleHeightBarDemo */;
+			targetProxy = BAC765D71E21B52D00B1AF2C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BAC765BE1E21B52D00B1AF2C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAC765BF1E21B52D00B1AF2C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BAC765C31E21B52D00B1AF2C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BAC765C41E21B52D00B1AF2C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BAC765DD1E21B52D00B1AF2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BAC765DE1E21B52D00B1AF2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BAC765E01E21B52D00B1AF2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K6439SN8NA;
+				INFOPLIST_FILE = FlexibleHeightBarDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = con.VicenteSuarez.FlexibleHeightBarDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BAC765E11E21B52D00B1AF2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = K6439SN8NA;
+				INFOPLIST_FILE = FlexibleHeightBarDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = con.VicenteSuarez.FlexibleHeightBarDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BAC765E31E21B52D00B1AF2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = K6439SN8NA;
+				INFOPLIST_FILE = FlexibleHeightBarDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = con.VicenteSuarez.FlexibleHeightBarDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlexibleHeightBarDemo.app/FlexibleHeightBarDemo";
+			};
+			name = Debug;
+		};
+		BAC765E41E21B52D00B1AF2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = K6439SN8NA;
+				INFOPLIST_FILE = FlexibleHeightBarDemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = con.VicenteSuarez.FlexibleHeightBarDemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FlexibleHeightBarDemo.app/FlexibleHeightBarDemo";
+			};
+			name = Release;
+		};
+		BAC765E61E21B52D00B1AF2C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = K6439SN8NA;
+				INFOPLIST_FILE = FlexibleHeightBarDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = con.VicenteSuarez.FlexibleHeightBarDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FlexibleHeightBarDemo;
+			};
+			name = Debug;
+		};
+		BAC765E71E21B52D00B1AF2C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				DEVELOPMENT_TEAM = K6439SN8NA;
+				INFOPLIST_FILE = FlexibleHeightBarDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = con.VicenteSuarez.FlexibleHeightBarDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = FlexibleHeightBarDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BAC765B21E21B52D00B1AF2C /* Build configuration list for PBXProject "FlexibleHeightBarDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAC765DD1E21B52D00B1AF2C /* Debug */,
+				BAC765DE1E21B52D00B1AF2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BAC765DF1E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAC765E01E21B52D00B1AF2C /* Debug */,
+				BAC765E11E21B52D00B1AF2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BAC765E21E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAC765E31E21B52D00B1AF2C /* Debug */,
+				BAC765E41E21B52D00B1AF2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		BAC765E51E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BAC765E61E21B52D00B1AF2C /* Debug */,
+				BAC765E71E21B52D00B1AF2C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BAC765AF1E21B52D00B1AF2C /* Project object */;
+}
