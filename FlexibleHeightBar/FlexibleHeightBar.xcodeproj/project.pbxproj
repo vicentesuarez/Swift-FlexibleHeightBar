@@ -10,6 +10,9 @@
 		BAC765631E21B12600B1AF2C /* FlexibleHeightBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC765591E21B12600B1AF2C /* FlexibleHeightBar.framework */; };
 		BAC765681E21B12600B1AF2C /* FlexibleHeightBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765671E21B12600B1AF2C /* FlexibleHeightBarTests.swift */; };
 		BAC7656A1E21B12600B1AF2C /* FlexibleHeightBar.h in Headers */ = {isa = PBXBuildFile; fileRef = BAC7655C1E21B12600B1AF2C /* FlexibleHeightBar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAC765EC1E21B76C00B1AF2C /* FlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765E91E21B76C00B1AF2C /* FlexibleHeightBar.swift */; };
+		BAC765ED1E21B76C00B1AF2C /* FlexibleHeightBarBehaviorDefiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765EA1E21B76C00B1AF2C /* FlexibleHeightBarBehaviorDefiner.swift */; };
+		BAC765EE1E21B76C00B1AF2C /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765EB1E21B76C00B1AF2C /* FlexibleHeightBarSubviewLayoutAttributes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,9 @@
 		BAC765621E21B12600B1AF2C /* FlexibleHeightBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlexibleHeightBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAC765671E21B12600B1AF2C /* FlexibleHeightBarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarTests.swift; sourceTree = "<group>"; };
 		BAC765691E21B12600B1AF2C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAC765E91E21B76C00B1AF2C /* FlexibleHeightBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBar.swift; sourceTree = "<group>"; };
+		BAC765EA1E21B76C00B1AF2C /* FlexibleHeightBarBehaviorDefiner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarBehaviorDefiner.swift; sourceTree = "<group>"; };
+		BAC765EB1E21B76C00B1AF2C /* FlexibleHeightBarSubviewLayoutAttributes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlexibleHeightBarSubviewLayoutAttributes.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +77,9 @@
 		BAC7655B1E21B12600B1AF2C /* FlexibleHeightBar */ = {
 			isa = PBXGroup;
 			children = (
+				BAC765E91E21B76C00B1AF2C /* FlexibleHeightBar.swift */,
+				BAC765EA1E21B76C00B1AF2C /* FlexibleHeightBarBehaviorDefiner.swift */,
+				BAC765EB1E21B76C00B1AF2C /* FlexibleHeightBarSubviewLayoutAttributes.swift */,
 				BAC7655C1E21B12600B1AF2C /* FlexibleHeightBar.h */,
 				BAC7655D1E21B12600B1AF2C /* Info.plist */,
 			);
@@ -149,6 +158,7 @@
 					BAC765581E21B12600B1AF2C = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = K6439SN8NA;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					BAC765611E21B12600B1AF2C = {
@@ -198,6 +208,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAC765EE1E21B76C00B1AF2C /* FlexibleHeightBarSubviewLayoutAttributes.swift in Sources */,
+				BAC765EC1E21B76C00B1AF2C /* FlexibleHeightBar.swift in Sources */,
+				BAC765ED1E21B76C00B1AF2C /* FlexibleHeightBarBehaviorDefiner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +335,7 @@
 		BAC7656E1E21B12600B1AF2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K6439SN8NA;
@@ -336,6 +350,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -343,6 +358,7 @@
 		BAC7656F1E21B12600B1AF2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = K6439SN8NA;
@@ -364,6 +380,7 @@
 		BAC765711E21B12600B1AF2C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = K6439SN8NA;
 				INFOPLIST_FILE = FlexibleHeightBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -376,6 +393,7 @@
 		BAC765721E21B12600B1AF2C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = K6439SN8NA;
 				INFOPLIST_FILE = FlexibleHeightBarTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
