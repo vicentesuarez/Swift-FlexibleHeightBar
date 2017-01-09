@@ -22,13 +22,13 @@ import UIKit
     The FlexibleHeightBarSubviewLayoutAttributes class is used to define layout attributes (i.e frame, transform, alpha) for subviews of a FlexibleHeightBar.
     Note: This class is heavily influenced by UICollectionViewLayoutAttributes.
 */
-class FlexibleHeightBarSubviewLayoutAttributes {
+public class FlexibleHeightBarSubviewLayoutAttributes {
     
     private let boundsAssertionMessage = "Bounds must be set with a (0,0) origin"
     
-    var alpha: CGFloat = 1.0 // Possible values are between 0.0 (transparent) and 1.0 (opaque). The default is 1.0.
-    var zIndex = 0.0 // Specifies the item’s position on the z axis.
-    var hidden = false
+    public var alpha: CGFloat = 1.0 // Possible values are between 0.0 (transparent) and 1.0 (opaque). The default is 1.0.
+    public var zIndex = 0.0 // Specifies the item’s position on the z axis.
+    public var hidden = false
    
     // MARK: - Computed Properties -
     
@@ -36,7 +36,7 @@ class FlexibleHeightBarSubviewLayoutAttributes {
         The frame rectangle of the item.
         The frame rectangle is measured in points and specified in the coordinate system of the collection view. Setting the value of this property also sets the values of the center and size properties.
     */
-    var frame: CGRect {
+    public var frame: CGRect {
         get {
             return _frame
         }
@@ -50,13 +50,13 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             _bounds = CGRect(x: _bounds.minX, y: _bounds.minY, width: _size.width, height: _size.height)
         }
     }
-    var _frame = CGRect.zero
+    private var _frame = CGRect.zero
     
     /**
         The bounds of the item.
         When setting the bounds, the origin of the bounds rectangle must always be at (0, 0). Changing the bounds rectangle also changes the value in the size property to match the new bounds size.
     */
-    var bounds: CGRect {
+    public var bounds: CGRect {
         get {
             return _bounds
         }
@@ -66,13 +66,13 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             _size = CGSize(width: _bounds.width, height: _bounds.height)
         }
     }
-    var _bounds = CGRect.zero
+    private var _bounds = CGRect.zero
     
     /**
         The center point of the item.
         The center point is specified in the coordinate system of the collection view. Setting the value of this property also updates the origin of the rectangle in the frame property.
     */
-    var center: CGPoint {
+    public var center: CGPoint {
         get {
             return _center
         }
@@ -84,13 +84,13 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             }
         }
     }
-    var _center = CGPoint.zero
+    private var _center = CGPoint.zero
     
     /**
         The size of the item.
         Setting the value of this property also changes the size of the rectangle returned by the frame and bounds properties.
     */
-    var size: CGSize {
+    public var size: CGSize {
         get {
             return _size
         }
@@ -104,13 +104,13 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             _bounds = CGRect(x: _bounds.minX, y: _bounds.minY, width: newSize.width, height: newSize.height)
         }
     }
-    var _size = CGSize.zero
+    private var _size = CGSize.zero
     
     /**
         The 3D transform of the item.
         Assigning a transform other than the identity transform to this property causes the frame property to be set to CGRectNull. Assigning a value also replaces the value in the transform property with an affine version of the 3D transform you specify.
     */
-    var transform3D: CATransform3D {
+    public var transform3D: CATransform3D {
         get {
             return _transform3D
         }
@@ -124,13 +124,13 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             }
         }
     }
-    var _transform3D = CATransform3DIdentity
+    private var _transform3D = CATransform3DIdentity
     
     /**
         The affine transform of the item.
         Assigning a transform other than the identity transform to this property causes the frame property to be set to CGRectNull. Assigning a value also replaces the value in the transform3D property with a 3D version of the affine transform you specify.
     */
-    var transform: CGAffineTransform {
+    public var transform: CGAffineTransform {
         get {
             return _transform
         }
@@ -144,9 +144,9 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             }
         }
     }
-    var _transform = CGAffineTransform.identity
+    private var _transform = CGAffineTransform.identity
     
-    var cornerRadius: CGFloat {
+    public var cornerRadius: CGFloat {
         get {
             return _cornerRadius
         }
@@ -154,11 +154,11 @@ class FlexibleHeightBarSubviewLayoutAttributes {
             _cornerRadius = fmax(newCornerRadius, 0.0)
         }
     }
-    var _cornerRadius: CGFloat = 0.0
+    private var _cornerRadius: CGFloat = 0.0
     
     // MARK: - Initialization -
     
-    init() {
+    public init() {
     }
     
     
@@ -168,7 +168,7 @@ class FlexibleHeightBarSubviewLayoutAttributes {
         - Parameter layoutAttributes: The existing layout attributes.
         - Returns: Layout attributes with the same property values as the specified layout attributes, or nil of initialization fails.
     */
-    convenience init(layoutAttributes: FlexibleHeightBarSubviewLayoutAttributes) {
+    public convenience init(layoutAttributes: FlexibleHeightBarSubviewLayoutAttributes) {
         self.init()
         _frame = layoutAttributes.frame
         _bounds = layoutAttributes.bounds
@@ -184,7 +184,7 @@ class FlexibleHeightBarSubviewLayoutAttributes {
 
 extension FlexibleHeightBarSubviewLayoutAttributes: CustomStringConvertible {
     
-    var description: String {
+    public var description: String {
         get {
             return "FlexibleHeightBarSubviewLayoutAttributes = {\n\talpha: \(alpha)\n\tzIndex: \(zIndex)\n\thidden: \(hidden)\n\tframe: \(frame)\n\tbounds: \(bounds)\n\tcenter: \(center)\n\tsize: \(size)\n\ttransform3D: \(transform3D)\n\ttransform: \(transform)\n}"
         }

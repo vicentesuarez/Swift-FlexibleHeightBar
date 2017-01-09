@@ -22,17 +22,17 @@ import UIKit
     The FlexibleHeightBarBehaviorDefiner class is responsible for defining how its FlexibleHeightBar instance will behave. Often, this behavior is tightly coupled with scroll events (i.e. a UITableView scrolling to the top). Because of this close relationship between bar behavior and scroll events, behavior definers conform to UIScrollViewDelegate. A behavior definer should set its bar's progress property to adjust the bar's height.
     The base class FlexibleHeightBarBehaviorDefiner does not attempt to adjust the bar's height based on scroll position, leaving it up to subclasses to implement custom bar behavior based on scrolling. The base class does, however, provide snapping behavior support. Snapping forces the bar to always snap to one of the defined snapping progress values.
 */
-class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
+open class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
     
     /// The FlexibleHeightBar instance corresponding with the behavior definer.
     // weak
-    var flexibleHeightBar: FlexibleHeightBar?
+    public var flexibleHeightBar: FlexibleHeightBar?
     /// Determines whether snapping is enabled or not. Default value is YES.
-    var snappingEnabled = true
+    public var snappingEnabled = true
     /// Determines whether the bar is current snapping or not.
-    private(set) var currentlySnapping = false
+    public private(set) var currentlySnapping = false
     /// Determines whether the bar can stretch to larger sizes than it's maximumBarHeight. Default value is NO.
-    var elasticMaximumHeightAtTop = false
+    public var elasticMaximumHeightAtTop = false
     private var snappingPositionsForProgressRanges = [NSValue: NSNumber]()
     
     private let snappingPositionAssertionMessage = "progressPercentRange sent to -addSnappingProgressPosition:forProgressPercentRange: intersects a progressPercentRange for an existing progressPosition."
@@ -46,7 +46,7 @@ class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
         - Parameter start: The start of the range of progress percents (between 0.0 and 1.0 inclusive) that will cause the bar to snap to the specified progressPosition.
         - Parameter end: The start of the range of progress percents (between 0.0 and 1.0 inclusive) that will cause the bar to snap to the specified progressPosition.
     */
-    func addSnappingPositionProgress(progress: CGFloat, _forProgressRangeStart start: CGFloat, end: CGFloat) {
+    public func addSnappingPositionProgress(_ progress: CGFloat, _forProgressRangeStart start: CGFloat, end: CGFloat) {
         
         // Make sure start and end are between 0 and 1
         let newStart = fmax(fmin(start, 1.0), 0.0) * 100.0
@@ -72,7 +72,7 @@ class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
         - Parameter start: The start of the range of progress percents (between 0.0 and 1.0 inclusive) that correspond with the progressPosition that is to be removed.
         - Parameter end: The end of the range of progress percents (between 0.0 and 1.0 inclusive) that correspond with the progressPosition that is to be removed.
     */
-    func removeSnappingPositionProgressForProgressRangeStart(start: CGFloat, end: CGFloat) {
+    public func removeSnappingPositionProgressForProgressRangeStart(start: CGFloat, end: CGFloat) {
         
         // Make sure start and end are between 0 and 1
         let newStart = fmax(fmin(start, 1.0), 0.0) * 100.0
@@ -89,7 +89,7 @@ class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
         - Parameter progress: The progress position that the bar will snap to.
         - Parameter scrollView: The UIScrollView whose offset will be adjusted during the snap.
     */
-    func snapToProgress(progress: CGFloat, scrollView: UIScrollView) {
+    public func snapToProgress(progress: CGFloat, scrollView: UIScrollView) {
         if let flexHeightBar = flexibleHeightBar {
             let deltaProgress = progress - flexHeightBar.progress
             let deltaYOffset = (flexHeightBar.maximumBarHeight - flexHeightBar.minimumBarHeight) * deltaProgress
@@ -107,7 +107,7 @@ class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
     
         - Parameter scrollView: The UIScrollView whose offset will be adjusted during the snap.
     */
-    func snap(with scrollView: UIScrollView) {
+    public func snap(with scrollView: UIScrollView) {
         if let flexHeightBar = flexibleHeightBar {
             if !currentlySnapping && snappingEnabled && flexHeightBar.progress >= 0 {
                 
@@ -141,17 +141,17 @@ class FlexibleHeightBarBehaviorDefiner: NSObject, UIScrollViewDelegate {
     
     // MARK: - Scroll View Delegate -
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         snap(with: scrollView)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             snap(with: scrollView)
         }
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if let flexibleHeightBar = flexibleHeightBar {
             scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(flexibleHeightBar.bounds.height, scrollView.scrollIndicatorInsets.left, scrollView.scrollIndicatorInsets.bottom, scrollView.scrollIndicatorInsets.right)
         }

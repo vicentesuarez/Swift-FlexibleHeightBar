@@ -1,0 +1,10 @@
+framework module FlexibleHeightBar {
+  umbrella header "FlexibleHeightBar.h"
+
+  export *
+  module * { export * }
+}
+
+module FlexibleHeightBar.Swift {
+    header "FlexibleHeightBar-Swift.h"
+}

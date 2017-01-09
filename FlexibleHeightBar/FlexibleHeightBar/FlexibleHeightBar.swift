@@ -25,15 +25,15 @@ import UIKit
 
     FlexibleHeightBar is designed to support any shrinking / growing behavior. For example, Safari's shrinking header and Facebook's shrinking header behave differently. Bar behaviors can be mix and matched (and hot swapped) by setting the bar's behaviorDefiner property.
 */
-class FlexibleHeightBar: UIView {
+open class FlexibleHeightBar: UIView {
     
     // MARK: - Properties -
     
     private var subviewLayoutAttributes = [UIView: [CGFloat: FlexibleHeightBarSubviewLayoutAttributes]]()
     private var layoutConstraintConstants = [NSLayoutConstraint: [CGFloat: CGFloat]]()
     
-    var heightConstraint: NSLayoutConstraint?
-    var useAutoLayout: Bool {
+    public var heightConstraint: NSLayoutConstraint?
+    public var useAutoLayout: Bool {
         if let _ = heightConstraint {
             return true
         }
@@ -41,7 +41,7 @@ class FlexibleHeightBar: UIView {
     }
     
     /// The non-negative maximum height for the bar. The default value is **44.0**.
-    var maximumBarHeight: CGFloat {
+    public var maximumBarHeight: CGFloat {
         get {
             return _maximumBarHeight
         }
@@ -49,10 +49,10 @@ class FlexibleHeightBar: UIView {
             _maximumBarHeight = fmax(newMaximumBarHeight, 0.0)
         }
     }
-    var _maximumBarHeight: CGFloat = 44.0
+    private var _maximumBarHeight: CGFloat = 44.0
     
     /// The non-negative minimum height for the bar. The default value is **20.0**.
-    var minimumBarHeight: CGFloat {
+    public var minimumBarHeight: CGFloat {
         get {
             return _minimumBarHeight
         }
@@ -60,13 +60,13 @@ class FlexibleHeightBar: UIView {
             _minimumBarHeight = fmax(newMinimumBarHeight, 0.0)
         }
     }
-    var _minimumBarHeight: CGFloat = 20.0
+    private var _minimumBarHeight: CGFloat = 20.0
     
     /**
         The current progress, representing how much the bar has shrunk. *progress == 0.0* puts the bar at its maximum height. *progress == 1.0* puts the bar at its minimum height. The default value is **0.0**.
         progress is bounded between *0.0* and *1.0* inclusive unless the bar's behaviorDefiner instance has its elasticMaximumHeightAtTop set to *true*.
     */
-    var progress: CGFloat {
+    public var progress: CGFloat {
         get {
             return _progress
         }
@@ -82,12 +82,12 @@ class FlexibleHeightBar: UIView {
             }
         }
     }
-    var _progress: CGFloat = 0.0
+    private var _progress: CGFloat = 0.0
     
     /**
         The behavior definer for the bar. Behavior definers are instances of FlexibleHeightBarBehaviorDefiner. Behavior definers can be changed at run time to provide a different behavior.
     */
-    var behaviorDefiner: FlexibleHeightBarBehaviorDefiner? {
+    public var behaviorDefiner: FlexibleHeightBarBehaviorDefiner? {
         get {
             return _behaviorDefiner
         }
@@ -99,7 +99,7 @@ class FlexibleHeightBar: UIView {
             }
         }
     }
-    var _behaviorDefiner: FlexibleHeightBarBehaviorDefiner?
+    private var _behaviorDefiner: FlexibleHeightBarBehaviorDefiner?
     
     // MARK: - Initialization -
     
@@ -109,11 +109,11 @@ class FlexibleHeightBar: UIView {
         _maximumBarHeight = frame.maxY
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func awakeFromNib() {
+    override open func awakeFromNib() {
         super.awakeFromNib()
         maximumBarHeight = bounds.maxY
     }
@@ -126,7 +126,7 @@ class FlexibleHeightBar: UIView {
     - Parameter subview: The receiver's subview to a apply the layout attributes to.
     - Parameter progress: The progress value (between *0.0* and *1.0* inclusive) that the receiver instance will use to decide which layout attributes to apply.
     */
-    func addLayoutAttributes(attributes: FlexibleHeightBarSubviewLayoutAttributes, forSubview subview: UIView, forProgress barProgress: CGFloat) {
+    public func addLayoutAttributes(_ attributes: FlexibleHeightBarSubviewLayoutAttributes, forSubview subview: UIView, forProgress barProgress: CGFloat) {
         
         // Init lazily
         if let _ = subviewLayoutAttributes[subview] {} else {
@@ -144,14 +144,14 @@ class FlexibleHeightBar: UIView {
     - Parameter subview: The subview to remove the layout attriutes from.
     - Parameter subviewProgress: The progress value corresponding to the layout attributes that are to be removed.
     */
-    func removeLayoutAttributeForSubview(subview: UIView, forProgress barProgress: CGFloat) {
+    public func removeLayoutAttributeForSubview(_ subview: UIView, forProgress barProgress: CGFloat) {
         
         subviewLayoutAttributes[subview]?[barProgress] = nil
     }
     
     // MARK: - Layout Constraints -
     
-    func addLayoutConstraintConstant(constant: CGFloat, forContraint constraint: NSLayoutConstraint, forProgress barProgress: CGFloat) {
+    public func addLayoutConstraintConstant(_ constant: CGFloat, forContraint constraint: NSLayoutConstraint, forProgress barProgress: CGFloat) {
         
         // Init lazily
         if let _ = layoutConstraintConstants[constraint] {} else {
@@ -164,13 +164,13 @@ class FlexibleHeightBar: UIView {
         layoutConstraintConstants[constraint]![newProgress] = constant
     }
     
-    func removeLayoutConstraintConstantforConstraint(constraint: NSLayoutConstraint, forProgress barProgress: CGFloat) {
+    public func removeLayoutConstraintConstantforConstraint(constraint: NSLayoutConstraint, forProgress barProgress: CGFloat) {
         layoutConstraintConstants[constraint]?[barProgress] = nil
     }
     
     // MARK: - Layout Subviews
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         // Update height
@@ -231,7 +231,7 @@ class FlexibleHeightBar: UIView {
     Applies the Constraint Constants to each constraint according to the current progress value for the receiver. If the subview has subviews, it checks for layout attributes for subviews as well.
     - Parameter aSubview: The subview to apply the layout attributes.
     */
-    func applyConstraintConstants() {
+    private func applyConstraintConstants() {
         
         for (constraint, _) in layoutConstraintConstants {
             
@@ -284,7 +284,7 @@ class FlexibleHeightBar: UIView {
     - Parameter floorProgress: The progress immidiately less than the current layout attributes.
     - Parameter ceilingProgress: The progress immidiately greater thatn the current layout attributes
     */
-    func apply(floorLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, ceilingLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, toSubview subview: UIView, withFloorProgress floorProgress: CGFloat, ceilingProgress: CGFloat) {
+    private func apply(floorLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, ceilingLayoutAttributes: FlexibleHeightBarSubviewLayoutAttributes, toSubview subview: UIView, withFloorProgress floorProgress: CGFloat, ceilingProgress: CGFloat) {
         
         let relativeProgress = calculateRelativeProgress(withFloorProgress: floorProgress, ceilingProgress: ceilingProgress)
         
@@ -358,7 +358,7 @@ class FlexibleHeightBar: UIView {
         subview.isHidden = floorLayoutAttributes.hidden
     }
     
-    func calculateRelativeProgress(withFloorProgress floorProgress: CGFloat, ceilingProgress: CGFloat) -> CGFloat {
+    private func calculateRelativeProgress(withFloorProgress floorProgress: CGFloat, ceilingProgress: CGFloat) -> CGFloat {
         
         let numerator = progress - floorProgress
         let denominator: CGFloat
