@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BA8D83111E24C71D00CBCAF1 /* FlexibleHeightBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC7661F1E22426200B1AF2C /* FlexibleHeightBar.framework */; };
 		BAC765BB1E21B52D00B1AF2C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765BA1E21B52D00B1AF2C /* AppDelegate.swift */; };
 		BAC765BD1E21B52D00B1AF2C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765BC1E21B52D00B1AF2C /* ViewController.swift */; };
 		BAC765C01E21B52D00B1AF2C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAC765BE1E21B52D00B1AF2C /* Main.storyboard */; };
@@ -18,8 +19,6 @@
 		BAC765FD1E223C4100B1AF2C /* FacebookStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765FC1E223C4100B1AF2C /* FacebookStyleViewController.swift */; };
 		BAC765FF1E223C5300B1AF2C /* SquareCashStyleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC765FE1E223C5300B1AF2C /* SquareCashStyleViewController.swift */; };
 		BAC766031E22403F00B1AF2C /* FacebookFlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC766021E22403F00B1AF2C /* FacebookFlexibleHeightBar.swift */; };
-		BAC766201E22426200B1AF2C /* FlexibleHeightBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAC7661F1E22426200B1AF2C /* FlexibleHeightBar.framework */; };
-		BAC766211E22426200B1AF2C /* FlexibleHeightBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = BAC7661F1E22426200B1AF2C /* FlexibleHeightBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		BAC766241E22459E00B1AF2C /* SquareCashFlexibleHeightBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC766231E22459E00B1AF2C /* SquareCashFlexibleHeightBar.swift */; };
 		BAC766271E22468400B1AF2C /* TableViewDataSourceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC766251E22468400B1AF2C /* TableViewDataSourceHandler.swift */; };
 		BAC766281E22468400B1AF2C /* TableViewDelegateHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAC766261E22468400B1AF2C /* TableViewDelegateHandler.swift */; };
@@ -43,20 +42,6 @@
 			remoteInfo = FlexibleHeightBarDemo;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		BAC766221E22426200B1AF2C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				BAC766211E22426200B1AF2C /* FlexibleHeightBar.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		BAC765B71E21B52D00B1AF2C /* FlexibleHeightBarDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlexibleHeightBarDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BAC766201E22426200B1AF2C /* FlexibleHeightBar.framework in Frameworks */,
+				BA8D83111E24C71D00CBCAF1 /* FlexibleHeightBar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,7 +174,7 @@
 				BAC765B31E21B52D00B1AF2C /* Sources */,
 				BAC765B41E21B52D00B1AF2C /* Frameworks */,
 				BAC765B51E21B52D00B1AF2C /* Resources */,
-				BAC766221E22426200B1AF2C /* Embed Frameworks */,
+				BA8D83121E24C76B00CBCAF1 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -311,6 +296,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BA8D83121E24C76B00CBCAF1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/FlexibleHeightBarDemo/FlexibleHeightBar.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BAC765B31E21B52D00B1AF2C /* Sources */ = {
@@ -586,6 +588,7 @@
 				BAC765E11E21B52D00B1AF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAC765E21E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -594,6 +597,7 @@
 				BAC765E41E21B52D00B1AF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAC765E51E21B52D00B1AF2C /* Build configuration list for PBXNativeTarget "FlexibleHeightBarDemoUITests" */ = {
 			isa = XCConfigurationList;
@@ -602,6 +606,7 @@
 				BAC765E71E21B52D00B1AF2C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
