@@ -24,7 +24,7 @@ Due to this library's modular, extensible nature, you are not limited to any one
 Add the following to your Cartfile
 
 ```ruby
-github "vicentesuarez/FlexibleHeightBar"
+github "vicentesuarez/Swift-FlexibleHeightBar"
 ```
 
 Then run `carthage update`.
