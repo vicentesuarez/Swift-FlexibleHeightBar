@@ -7,12 +7,11 @@
 //
 
 import UIKit
-import FlexibleHeightBar
 
-class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
+public class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
     // MARK: - Properties -
     
-    var thresholdFromTop: CGFloat {
+    private var thresholdFromTop: CGFloat {
         get {
             return _thresholdFromTop
         }
@@ -20,9 +19,9 @@ class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
             _thresholdFromTop = fmax(newThresholdFromTop, 0.0)
         }
     }
-    var _thresholdFromTop: CGFloat = 0.0
+    private var _thresholdFromTop: CGFloat = 0.0
     
-    var thresholdNegativeDirection: CGFloat {
+    private var thresholdNegativeDirection: CGFloat {
         get {
             return _thresholdNegativeDirection
         }
@@ -30,9 +29,9 @@ class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
             _thresholdNegativeDirection = fmax(newThresholdNegativeDirection, 0.0)
         }
     }
-    var _thresholdNegativeDirection: CGFloat = 0.0
+    private var _thresholdNegativeDirection: CGFloat = 0.0
     
-    var thresholdPositiveDirection: CGFloat {
+    private var thresholdPositiveDirection: CGFloat {
         get {
             return _thresholdPositiveDirection
         }
@@ -40,14 +39,14 @@ class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
             _thresholdPositiveDirection = fmax(newThresholdPositiveDirection, 0.0)
         }
     }
-    var _thresholdPositiveDirection: CGFloat = 0.0
+    private var _thresholdPositiveDirection: CGFloat = 0.0
     
     private var previousYOffset: CGFloat = 0.0
     private var previousProgress: CGFloat = 0.0
     
     // MARK: - Initialization -
     
-    override init() {
+    public override init() {
         super.init()
         
         addSnappingPositionProgress(0.0, _forProgressRangeStart: 0.0, end: 40.0/(105.0 - 20.0))
@@ -57,17 +56,17 @@ class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
     
     // MARK: - Apply progress tracking -
     
-    func applyFromTopProgressTrackingThreshold() {
+    private func applyFromTopProgressTrackingThreshold() {
         previousYOffset += thresholdFromTop
     }
     
-    func applyNegativeDirectionProgressTrackingThreshold() {
+    private func applyNegativeDirectionProgressTrackingThreshold() {
         if flexibleHeightBar?.progress == 1.0 {
             previousYOffset -= thresholdNegativeDirection
         }
     }
     
-    func applyPositiveDirectionProgressTrackingThreshold() {
+    private func applyPositiveDirectionProgressTrackingThreshold() {
         if flexibleHeightBar?.progress == 0.0 {
             previousYOffset += thresholdPositiveDirection
         }
@@ -75,7 +74,7 @@ class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
     
     // MARK: - Scrollview delegate methods -
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         if let flexHeightBar = flexibleHeightBar {
             
             let scrollViewViewportHeight = scrollView.bounds.maxY - scrollView.bounds.minY
@@ -121,7 +120,7 @@ class FacebookBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
         }
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    public override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         super.scrollViewDidScroll(scrollView)
         if let flexHeightBar = flexibleHeightBar {
             

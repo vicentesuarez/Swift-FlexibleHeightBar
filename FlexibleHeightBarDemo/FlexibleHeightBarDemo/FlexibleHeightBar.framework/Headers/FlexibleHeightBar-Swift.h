@@ -115,59 +115,14 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 # define SWIFT_UNAVAILABLE __attribute__((unavailable))
 #endif
 #if defined(__has_feature) && __has_feature(modules)
+@import ObjectiveC;
 @import UIKit;
 @import CoreGraphics;
-@import ObjectiveC;
 #endif
 
 #pragma clang diagnostic ignored "-Wproperty-attribute-mismatch"
 #pragma clang diagnostic ignored "-Wduplicate-method-arg"
-@class NSLayoutConstraint;
-@class FlexibleHeightBarBehaviorDefiner;
-@class NSCoder;
-
-/**
-  The FlexibleHeightBar class is responsible for adjusting the layout attributes (i.e. frame, transform, alpha) of its subviews depending on its current height.
-  The height of the bar is not set directy by adjusting the bar’s frame. Rather, height adjustments are made by setting the progress property of the bar. The progress property represents how much the bar has shrunk, with 0% progress being the bar’s full height and 100% progress being the bar’s minimum height.
-  FlexibleHeightBar is designed to support any shrinking / growing behavior. For example, Safari’s shrinking header and Facebook’s shrinking header behave differently. Bar behaviors can be mix and matched (and hot swapped) by setting the bar’s behaviorDefiner property.
-*/
-SWIFT_CLASS("_TtC17FlexibleHeightBar17FlexibleHeightBar")
-@interface FlexibleHeightBar : UIView
-@property (nonatomic, strong) NSLayoutConstraint * _Nullable heightConstraint;
-@property (nonatomic, readonly) BOOL useAutoLayout;
-/**
-  The non-negative maximum height for the bar. The default value is <em>44.0</em>.
-*/
-@property (nonatomic) CGFloat maximumBarHeight;
-/**
-  The non-negative minimum height for the bar. The default value is <em>20.0</em>.
-*/
-@property (nonatomic) CGFloat minimumBarHeight;
-/**
-  The current progress, representing how much the bar has shrunk. <em>progress == 0.0</em> puts the bar at its maximum height. <em>progress == 1.0</em> puts the bar at its minimum height. The default value is <em>0.0</em>.
-  progress is bounded between <em>0.0</em> and <em>1.0</em> inclusive unless the bar’s behaviorDefiner instance has its elasticMaximumHeightAtTop set to <em>true</em>.
-*/
-@property (nonatomic) CGFloat progress;
-/**
-  The behavior definer for the bar. Behavior definers are instances of FlexibleHeightBarBehaviorDefiner. Behavior definers can be changed at run time to provide a different behavior.
-*/
-@property (nonatomic, strong) FlexibleHeightBarBehaviorDefiner * _Nullable behaviorDefiner;
-- (nonnull instancetype)initWithFrame:(CGRect)frame SWIFT_UNAVAILABLE;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
-- (void)awakeFromNib;
-/**
-  Remove the layout attributes instance that corresponds to then specified progress value from the specified subview.
-  \param subview The subview to remove the layout attriutes from.
-
-  \param subviewProgress The progress value corresponding to the layout attributes that are to be removed.
-
-*/
-- (void)removeLayoutAttributeForSubview:(UIView * _Nonnull)subview forProgress:(CGFloat)barProgress;
-- (void)addLayoutConstraintConstant:(CGFloat)constant forContraint:(NSLayoutConstraint * _Nonnull)constraint forProgress:(CGFloat)barProgress;
-- (void)removeLayoutConstraintConstantforConstraintWithConstraint:(NSLayoutConstraint * _Nonnull)constraint forProgress:(CGFloat)barProgress;
-- (void)layoutSubviews;
-@end
-
+@class FlexibleHeightBar;
 @class UIScrollView;
 
 /**
@@ -224,6 +179,81 @@ SWIFT_CLASS("_TtC17FlexibleHeightBar32FlexibleHeightBarBehaviorDefiner")
 - (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 - (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
 - (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC17FlexibleHeightBar26FacebookBarBehaviorDefiner")
+@interface FacebookBarBehaviorDefiner : FlexibleHeightBarBehaviorDefiner
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+@end
+
+@class NSLayoutConstraint;
+@class NSCoder;
+
+/**
+  The FlexibleHeightBar class is responsible for adjusting the layout attributes (i.e. frame, transform, alpha) of its subviews depending on its current height.
+  The height of the bar is not set directy by adjusting the bar’s frame. Rather, height adjustments are made by setting the progress property of the bar. The progress property represents how much the bar has shrunk, with 0% progress being the bar’s full height and 100% progress being the bar’s minimum height.
+  FlexibleHeightBar is designed to support any shrinking / growing behavior. For example, Safari’s shrinking header and Facebook’s shrinking header behave differently. Bar behaviors can be mix and matched (and hot swapped) by setting the bar’s behaviorDefiner property.
+*/
+SWIFT_CLASS("_TtC17FlexibleHeightBar17FlexibleHeightBar")
+@interface FlexibleHeightBar : UIView
+@property (nonatomic, strong) NSLayoutConstraint * _Nullable heightConstraint;
+@property (nonatomic, readonly) BOOL useAutoLayout;
+/**
+  The non-negative maximum height for the bar. The default value is <em>44.0</em>.
+*/
+@property (nonatomic) CGFloat maximumBarHeight;
+/**
+  The non-negative minimum height for the bar. The default value is <em>20.0</em>.
+*/
+@property (nonatomic) CGFloat minimumBarHeight;
+/**
+  The current progress, representing how much the bar has shrunk. <em>progress == 0.0</em> puts the bar at its maximum height. <em>progress == 1.0</em> puts the bar at its minimum height. The default value is <em>0.0</em>.
+  progress is bounded between <em>0.0</em> and <em>1.0</em> inclusive unless the bar’s behaviorDefiner instance has its elasticMaximumHeightAtTop set to <em>true</em>.
+*/
+@property (nonatomic) CGFloat progress;
+/**
+  The behavior definer for the bar. Behavior definers are instances of FlexibleHeightBarBehaviorDefiner. Behavior definers can be changed at run time to provide a different behavior.
+*/
+@property (nonatomic, strong) FlexibleHeightBarBehaviorDefiner * _Nullable behaviorDefiner;
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)awakeFromNib;
+/**
+  Remove the layout attributes instance that corresponds to then specified progress value from the specified subview.
+  \param subview The subview to remove the layout attriutes from.
+
+  \param subviewProgress The progress value corresponding to the layout attributes that are to be removed.
+
+*/
+- (void)removeLayoutAttributeForSubview:(UIView * _Nonnull)subview forProgress:(CGFloat)barProgress;
+- (void)addLayoutConstraintConstant:(CGFloat)constant forContraint:(NSLayoutConstraint * _Nonnull)constraint forProgress:(CGFloat)barProgress;
+- (void)removeLayoutConstraintConstantforConstraintWithConstraint:(NSLayoutConstraint * _Nonnull)constraint forProgress:(CGFloat)barProgress;
+- (void)layoutSubviews;
+@end
+
+
+
+SWIFT_CLASS("_TtC17FlexibleHeightBar28SquareCashBarBehaviorDefiner")
+@interface SquareCashBarBehaviorDefiner : FlexibleHeightBarBehaviorDefiner
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+@end
+
+
+SWIFT_CLASS("_TtC17FlexibleHeightBar24TableViewDelegateHandler")
+@interface TableViewDelegateHandler : NSObject <UITableViewDelegate>
+/**
+  Second delegate object that responds to scrollViewDelegate events
+*/
+@property (nonatomic, strong) id <UIScrollViewDelegate> _Nullable otherDelegate;
+- (void)scrollViewDidScroll:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewWillBeginDragging:(UIScrollView * _Nonnull)scrollView;
+- (void)scrollViewDidEndDragging:(UIScrollView * _Nonnull)scrollView willDecelerate:(BOOL)decelerate;
+- (void)scrollViewDidEndDecelerating:(UIScrollView * _Nonnull)scrollView;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 

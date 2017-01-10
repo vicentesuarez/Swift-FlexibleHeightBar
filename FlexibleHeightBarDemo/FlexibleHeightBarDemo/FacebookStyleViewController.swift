@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FlexibleHeightBar
 
 class FacebookStyleViewController: UIViewController {
     

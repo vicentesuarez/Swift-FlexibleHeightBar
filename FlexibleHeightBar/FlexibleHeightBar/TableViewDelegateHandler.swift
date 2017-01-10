@@ -8,28 +8,28 @@
 
 import UIKit
 
-class TableViewDelegateHandler: NSObject, UITableViewDelegate {
+open class TableViewDelegateHandler: NSObject, UITableViewDelegate {
     
     // MARK: - Properties -
     
     /// Second delegate object that responds to scrollViewDelegate events
-    var otherDelegate: UIScrollViewDelegate?
+    public var otherDelegate: UIScrollViewDelegate?
     
     // MARK: - Scrollview Delegate -
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    open func scrollViewDidScroll(_ scrollView: UIScrollView) {
         otherDelegate?.scrollViewDidScroll?(scrollView)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    open func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         otherDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
     
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+    open func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         otherDelegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    open func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         otherDelegate?.scrollViewDidEndDecelerating?(scrollView)
     }
 }

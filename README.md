@@ -3,8 +3,8 @@ Expandable implementation of a navigation bar-like view that expands and contrac
 
 ## Create condensing header bars like those seen in the Facebook, Square Cash, and Safari iOS apps.
 
-<img src="https://googledrive.com/host/0B_p3_GBXJDbmYzVqZmQ4UE1USFk/FacebookFlexibleHeightBarDemo.gif" alt="Facebook Style Bar" width="188" height="334"/> 
-<img src="https://googledrive.com/host/0B_p3_GBXJDbmYzVqZmQ4UE1USFk/SquareCashFlexibleHeightBarDemo.gif" alt="Square Cash Style Bar" width="188" height="334"/>
+![Facebook Style Bar](media/FacebookFlexibleHeightBarDemo.gif?raw=true "Facebook Style Bar")
+![Square Cash Style Bar](media/SquareCashFlexibleHeightBarDemo.gif?raw=true "Square Cash Style Bar")
 
 `FlexibleHeightBar` allows you to create header bars with flexible heights. Often, this sort of UI paradigm is used to hide "chrome" and make room for more content as a user is scrolling. This is seen in third party apps like Facebook and Square Cash, as well as first party apps like Safari.
 
@@ -15,11 +15,29 @@ Expandable implementation of a navigation bar-like view that expands and contrac
 
 Due to this library's modular, extensible nature, you are not limited to any one look or any one feel. *What UICollectionView does for presenting collections of data, `FlexibleHeightBar` does for creating header bars.*
 
-### Installation
-1. Clone this repo or click "Download ZIP" on the side.
-2. Copy all of the files in the "FlexibleHeightBar" folder into your project. You probably want to check the box that says "Copy items if needed" as well as make sure that the target you want to add the files to is checked.
+## Installation
 
-## How do I use it?
+### [Carthage]
+
+[Carthage]: https://github.com/Carthage/Carthage
+
+Add the following to your Cartfile
+
+```ruby
+github "vicentesuarez/FlexibleHeightBar"
+```
+
+Then run `carthage update`.
+
+Follow the instructions at [Carthage's README](https://github.com/Carthage/Carthage/blob/master/README.md)
+for up to date installation instructions.
+
+### Manual
+
+1. Clone this repo or click "Download ZIP" on the side.
+2. Copy all of the Swift files in the "FlexibleHeightBar/FlexibleHeightBar" folder into your project. You probably want to check the box that says "Copy items if needed" as well as make sure that the target you want to add the files to is checked.
+
+## Usage
 
 ###Before we get started, understand this:
 The height of the bar is not set directy by adjusting the bar's frame. Rather, height adjustments are made by setting the `progress` property of the bar. The progress property represents how much the bar has shrunk from its maximum height to its minimum height
@@ -37,11 +55,16 @@ NOTE: Because `UITableViewController`'s `view` property is the same as its `tabl
 First, create an instance of `FlexibleHeightBar` and configure it. When we `initWithFrame()`, the bar's `maximumBarHeight` property is autmatically set to the frame's height. We can manually set the `minimumBarHeight` from its default value of 20.0. Lastly, we can give it a color and add our bar to the view hierarchy.
 
 ```swift
-let myBar = FlexibleHeightBar(frame: CGRectMake(0.0, 0.0, self.view.frame.size.width, 100.0))
+let myBar = FlexibleHeightBar(frame: CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width, height: 100.0))
 myBar.minimumBarHeight = 50.0
-
+        
 myBar.backgroundColor = UIColor(red:0.86, green:0.25, blue:0.23, alpha:1)
-self.view,addSubview(myBar)
+self.view.addSubview(myBar)
+```
+
+and position your scrollview content view below the bar.
+```swift
+tableView.contentInset = UIEdgeInsetsMake(100.0, 0.0, 0.0, 0.0)
 ```
 
 ### Configuring bar behavior
@@ -69,8 +92,8 @@ self.scrollview.delegate = myBar.behaviorDefiner
 Snapping forces your bar to animate to a final position when the user stops scrolling. Any subclass of `FlexibleHeightBarBehaviorDefiner` automatically gets snapping functionality for free. Snapping works by defining a final bar `progress` to which the bar will animate whenever the user stops scrolling and the bar is between some range of progress values.
 
 ```swift
-myBar.addSnappingPositionProgress(0.0, _forProgressRangeStart: 0.0, end: 0.5)
-myBar.addSnappingPositionProgress(0.0, _forProgressRangeStart: 0.5, end: 1.0)
+myBar.behaviorDefiner?.addSnappingPositionProgress(0.0, _forProgressRangeStart: 0.0, end: 0.5)
+myBar.behaviorDefiner?.addSnappingPositionProgress(0.0, _forProgressRangeStart: 0.5, end: 1.0)
 ```
 The above code simply causes the bar to snap to the maxmium height (`progress == 0.0`) or minimum height (`progress == 1.0`) depending on which is closer. Additional snapping positions can be defined and don't necessarily have to follow the "whichever is closer" rule.
 
@@ -87,8 +110,8 @@ Start by creating and adding a subview to your bar. Don't bother giving it a fra
 ```swift
 let label = UILabel();
 label.text = "TrendyStartup.io"
-label.font = UIFont.systemFontOfSize(25.0)
-label.textColor = UIColor.whiteColor()
+label.font = UIFont.systemFont(ofSize: 25.0)
+label.textColor = UIColor.white
 label.sizeToFit()
 myBar.addSubview(label)
 ```
@@ -100,28 +123,31 @@ We define these discrete layout states by defining layout attributes for a subvi
 ```swift
 let initialLayoutAttributes = FlexibleHeightBarSubviewLayoutAttributes()
 initialLayoutAttributes.size = label.frame.size
-initialLayoutAttributes.center = CGPointMake(CGRectGetMidX(myBar.bounds), CGRectGetMidY(myBar.bounds) + 10.0)
-
+initialLayoutAttributes.center = CGPoint(x: myBar.bounds.midX, y: myBar.bounds.midY + 10.0)
+        
 // This is what we want the bar to look like at its maximum height (progress == 0.0)
-addLayoutAttributes(initialLayoutAttributes, forSubview: label, forProgress: 0.0)
+myBar.addLayoutAttributes(initialLayoutAttributes, forSubview: label, forProgress: 0.0)
 ```
 and then
 ```swift
+// This is what we want the bar to look like at its maximum height (progress == 0.0)
+myBar.addLayoutAttributes(initialLayoutAttributes, forSubview: label, forProgress: 0.0)
+        
 // Create a final set of layout attributes based on the same values as the initial layout attributes
 let finalLayoutAttributes = FlexibleHeightBarSubviewLayoutAttributes(layoutAttributes: initialLayoutAttributes)
 finalLayoutAttributes.alpha = 0.0
-let translation = CGAffineTransformMakeTranslation(0.0, -30.0)
-let scale = CGAffineTransformMakeScale(0.2, 0.2)
-finalLayoutAttributes.transform = CGAffineTransformConcat(scale, translation)
-
+let translation = CGAffineTransform(translationX: 0.0, y: -30.0)
+let scale = CGAffineTransform(scaleX: 0.2, y: 0.2)
+finalLayoutAttributes.transform = scale.concatenating(translation)
+        
 // This is what we want the bar to look like at its minimum height (progress == 1.0)
-addLayoutAttributes(finalLayoutAttributes, label: profileImageView, forProgress: 1.0)
+myBar.addLayoutAttributes(finalLayoutAttributes, forSubview: label, forProgress: 1.0)
 ```
 *More layout attributes and more subviews can be added in exactly the same way, allowing you to create just about any flexible bar design imaginable.*
 
 #### Congrats! You should now have something that looks and behaves like this:
 
-<img src="https://googledrive.com/host/0B_p3_GBXJDbmYzVqZmQ4UE1USFk/Example.gif" alt="Demo" width="300"/>
+![Example](media/example.gif?raw=true "Example")
 
 
 ## Creating custom behavior definers
@@ -143,5 +169,11 @@ The basic pattern for the definer is as follows:
 
 It may be useful to make other calculations outside of `scrollViewDidScroll()`. For example, the included `FacebookBarBehaviorDefiner` needs to apply scrolling thresholds before the bar should hide or reveal itself. This calculation is done inside of `scrollViewWillBeginDragging()`.
 
-## Contact me
-I am on LinkedIn - [Vicente Suarez](https://www.linkedin.com/in/vicentehsuarez)
+### Autolayout
+
+The FlexibleHeightBar supports autolayout in the same way that it supports other properties through the following methods:
+
+```swift
+public func addLayoutConstraintConstant(_ constant: CGFloat, forContraint constraint: NSLayoutConstraint, forProgress barProgress: CGFloat)
+public func removeLayoutConstraintConstantforConstraint(constraint: NSLayoutConstraint, forProgress barProgress: CGFloat)
+```

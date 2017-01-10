@@ -1,19 +1,18 @@
 //
 //  SquareCashBarBehaviorDefiner.swift
-//  FlexibleHeightBarDemo
+//  FlexibleHeightBar
 //
 //  Created by Vicente Suarez on 1/8/17.
 //  Copyright © 2017 Vicente Suarez. All rights reserved.
 //
 
 import UIKit
-import FlexibleHeightBar
 
-class SquareCashBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
+public class SquareCashBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
     
     // MARK: - Initialization -
     
-    override init() {
+    public override init() {
         super.init()
         
         addSnappingPositionProgress(0.0, _forProgressRangeStart: 0.0, end: 0.5)
@@ -23,7 +22,7 @@ class SquareCashBarBehaviorDefiner: FlexibleHeightBarBehaviorDefiner {
     
     // MARK: - UIScrollViewDelegate methods -
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    override public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         super.scrollViewDidScroll(scrollView)
         
         if let flexHeightBar = flexibleHeightBar, !currentlySnapping {

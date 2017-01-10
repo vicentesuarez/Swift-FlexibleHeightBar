@@ -104,7 +104,7 @@ open class FlexibleHeightBar: UIView {
     // MARK: - Initialization -
     
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         _maximumBarHeight = frame.maxY
     }
